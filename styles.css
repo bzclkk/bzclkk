@@ -162,3 +162,8 @@ footer {
   font-size: 0.9rem;
   color: #888;
 }
+
+/* === HIDDEN CLASS FOR LOADER FIX === */
+.hidden {
+  display: none;
+}
