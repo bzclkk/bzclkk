@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* === RESET & BASE === */
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ img {
   display: none !important;
 }
 
-/* Loader */
+/* === LOADER === */
 .loader-wrapper {
   position: fixed;
   inset: 0;
@@ -52,14 +52,14 @@ img {
   color: #00ffff;
 }
 
-/* Container */
+/* === MAIN CONTAINER === */
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 2rem;
 }
 
-/* Header */
+/* === HEADER === */
 .profile-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -79,15 +79,22 @@ img {
   color: #00ffff;
 }
 
-/* Cards */
+/* === CARD BASE === */
 .card {
   background: #1a1a22;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
 }
 
+/* Card Hover Zoom */
+.card:hover {
+  transform: scale(1.01);
+}
+
+/* === CARD HEADER === */
 .card-header {
   display: flex;
   align-items: center;
@@ -122,7 +129,7 @@ img {
   margin-bottom: 0.5rem;
 }
 
-/* Services */
+/* === SERVICES SECTION === */
 .services-list {
   display: flex;
   flex-wrap: wrap;
@@ -130,18 +137,20 @@ img {
   gap: 1rem;
 }
 
+/* Hover Zoom on Widgets */
 .service-item {
   background: #2a2a36;
   padding: 1rem;
   width: 160px;
   text-align: center;
   border-radius: 10px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 
 .service-item:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
 }
 
 .service-icon {
@@ -150,7 +159,12 @@ img {
   margin-bottom: 0.5rem;
 }
 
-/* Gallery */
+.service-item h3 {
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* === BUILDING GALLERY === */
 .gallery-page {
   padding: 2rem;
   background: #0e0e12;
@@ -171,14 +185,15 @@ img {
 .gallery-grid img {
   border-radius: 10px;
   border: 2px solid #00ffff33;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
   cursor: zoom-in;
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
+/* === BACK BUTTON === */
 .back-btn {
   background: none;
   border: none;
@@ -188,7 +203,7 @@ img {
   margin-bottom: 1rem;
 }
 
-/* Lightbox */
+/* === LIGHTBOX === */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -213,10 +228,21 @@ img {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Footer */
+/* === FOOTER === */
 footer {
   text-align: center;
   font-size: 0.9rem;
   color: #888;
   margin-top: 2rem;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .service-item {
+    width: 100%;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
 }
