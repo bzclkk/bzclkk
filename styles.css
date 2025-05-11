@@ -1,4 +1,4 @@
-/* === GENERAL RESET === */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ img {
   display: none !important;
 }
 
-/* === LOADER === */
+/* Loader */
 .loader-wrapper {
   position: fixed;
   inset: 0;
@@ -52,14 +52,14 @@ img {
   color: #00ffff;
 }
 
-/* === CONTAINER === */
+/* Container */
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 2rem;
 }
 
-/* === HEADER === */
+/* Header */
 .profile-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -79,13 +79,13 @@ img {
   color: #00ffff;
 }
 
-/* === CARD === */
+/* Cards */
 .card {
   background: #1a1a22;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .card-header {
@@ -122,7 +122,7 @@ img {
   margin-bottom: 0.5rem;
 }
 
-/* === SERVICES === */
+/* Services */
 .services-list {
   display: flex;
   flex-wrap: wrap;
@@ -150,7 +150,7 @@ img {
   margin-bottom: 0.5rem;
 }
 
-/* === GALLERY PAGE === */
+/* Gallery */
 .gallery-page {
   padding: 2rem;
   background: #0e0e12;
@@ -172,13 +172,13 @@ img {
   border-radius: 10px;
   border: 2px solid #00ffff33;
   transition: transform 0.2s;
+  cursor: zoom-in;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.03);
 }
 
-/* === BACK BUTTON === */
 .back-btn {
   background: none;
   border: none;
@@ -188,7 +188,32 @@ img {
   margin-bottom: 1rem;
 }
 
-/* === FOOTER === */
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  cursor: zoom-out;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ffff88;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Footer */
 footer {
   text-align: center;
   font-size: 0.9rem;
