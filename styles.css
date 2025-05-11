@@ -1,3 +1,4 @@
+/* === GENERAL RESET === */
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +7,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #0e0e12;
-  color: #fff;
+  background-color: #0e0e12;
+  color: #ffffff;
   overflow-x: hidden;
 }
 
@@ -16,75 +17,82 @@ img {
   display: block;
 }
 
-.hidden {
-  display: none;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Loader */
+/* === HIDDEN CLASS === */
+.hidden {
+  display: none !important;
+}
+
+/* === LOADER === */
 .loader-wrapper {
   position: fixed;
-  inset: 0;
-  background: #0e0e12;
-  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0e0e12;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
 }
 
 .loader-img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  animation: pulse 1s infinite;
+  width: 150px;
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 .loader-text {
-  margin-top: 10px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #00ffff;
+  font-weight: bold;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.85; }
-}
-
-/* Container & Layout */
+/* === CONTAINER === */
 .container {
+  padding: 2rem;
   max-width: 1200px;
   margin: auto;
-  padding: 2rem;
 }
 
+/* === HEADER === */
 .profile-header {
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .profile-pic img {
+  border-radius: 50%;
   width: 150px;
   height: 150px;
-  border: 4px solid #00ffff;
-  border-radius: 50%;
   object-fit: cover;
+  border: 4px solid #00ffff;
   margin-bottom: 1rem;
 }
 
 .header-text h1 {
-  color: #00ffff;
   font-size: 2.5rem;
+  color: #00ffff;
 }
 
-/* Cards */
+/* === CARD STYLE === */
 .card {
-  background: #1a1a22;
+  background-color: #1a1a22;
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
 }
 
+/* === CARD HEADER === */
 .card-header {
   display: flex;
   align-items: center;
@@ -92,112 +100,96 @@ img {
 }
 
 .card-header-icon {
+  font-size: 1.8rem;
   color: #00ffff;
-  font-size: 1.5rem;
   margin-right: 1rem;
 }
 
 .card-header-text h2 {
   font-size: 1.5rem;
+  margin: 0;
 }
 
 .header-subtext {
-  color: #aaa;
   font-size: 0.9rem;
+  color: #aaa;
 }
 
-.card-content p, .card-content ul {
+/* === CARD CONTENT === */
+.card-content p {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* Skills */
-.skills-list {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.skill-item {
-  background: #2a2a36;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  color: #00ffff;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-/* Services */
+/* === SERVICES WIDGET === */
 .services-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 1rem;
+  justify-content: center;
 }
 
 .service-item {
-  background: #2a2a36;
+  background-color: #2a2a36;
+  border-radius: 0.75rem;
   padding: 1rem;
-  border-radius: 10px;
-  width: 160px;
+  width: 150px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .service-item:hover {
   transform: scale(1.05);
+  background-color: #333344;
 }
 
 .service-icon {
   font-size: 2rem;
+  color: #00ffff;
   margin-bottom: 0.5rem;
-  color: #00ffff;
 }
 
-/* Gallery */
-.building-gallery {
-  padding: 2rem;
-  background: #0e0e12;
-}
-
-.back-btn {
-  background: none;
-  color: #00ffff;
-  border: none;
+.service-item h3 {
   font-size: 1rem;
-  cursor: pointer;
-  margin-bottom: 1rem;
+  color: #fff;
 }
 
-.gallery-heading {
-  color: #00ffff;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* === GALLERY STYLE === */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
-.gallery-grid img {
-  border: 2px solid #00ffff33;
-  border-radius: 8px;
-  transition: transform 0.2s ease;
+.gallery-item {
+  width: 200px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+  transition: transform 0.2s;
 }
 
-.gallery-grid img:hover {
+.gallery-item:hover {
   transform: scale(1.05);
 }
 
-/* Footer */
+/* === FOOTER === */
 footer {
   text-align: center;
-  font-size: 0.9rem;
-  color: #888;
   margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .service-item {
+    width: 100%;
+  }
+
+  .gallery-item {
+    width: 100%;
+  }
 }
