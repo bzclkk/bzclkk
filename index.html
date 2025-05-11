@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bzclkk | Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="loader-wrapper">
+    <div class="loader">
+      <svg class="loader-svg" viewBox="0 0 50 50">
+        <circle class="loader-circle" cx="25" cy="25" r="20"></circle>
+      </svg>
+      <div class="loader-text">bzclk</div>
+    </div>
+  </div>
+
+  <div class="container" style="display: none;">
+    <header class="profile-header">
+      <div class="profile-pic">
+        <img src="https://cdn.discordapp.com/attachments/1305591921070313504/1362459867163529326/thumb-1920-340090.jpg" alt="bzclk">
+      </div>
+      <div class="header-text">
+        <h1>Bzclkk</h1>
+      </div>
+    </header>
+
+    <main class="card-container">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="card-header-text">
+            <h2>About Me</h2>
+            <div class="header-subtext">Learn more about me.</div>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Hey! I am Bzclk, I am 16 years old, I love coding, graphic design and 3D Modeling, cheers!</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon">
+            <i class="fas fa-hammer"></i>
+          </div>
+          <div class="card-header-text">
+            <h2>Services</h2>
+            <div class="header-subtext">What I offer</div>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="services-container">
+            <div class="services-list">
+              <div class="service-item">
+                <div class="service-icon">
+                  <i class="fas fa-hammer"></i>
+                </div>
+                <div class="service-details">
+                  <h3>Building</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 | bzclk/2vhj | All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loaderWrapper = document.querySelector('.loader-wrapper');
+      const loadingText = document.querySelector('.loader-text');
+      const container = document.querySelector('.container');
+
+      let dots = 0;
+      let progress = 0;
+
+      const loaderInterval = setInterval(() => {
+        dots = (dots + 1) % 4;
+        loadingText.textContent = `bzclk${'.'.repeat(dots)}`;
+        progress += 40;
+
+        if (progress >= 100) {
+          clearInterval(loaderInterval);
+          loaderWrapper.style.opacity = '0';
+          setTimeout(() => {
+            loaderWrapper.style.display = 'none';
+            container.style.display = 'block';
+          }, 300);
+        }
+      }, 100);
+    });
+  </script>
+</body>
+</html>
