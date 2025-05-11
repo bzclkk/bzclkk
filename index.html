@@ -14,7 +14,7 @@
     <div class="loader-text">bzclk</div>
   </div>
 
-  <!-- Main Site Container -->
+  <!-- Main Content -->
   <div class="container hidden" id="mainContent">
     <header class="profile-header">
       <div class="profile-pic">
@@ -116,7 +116,12 @@
     </div>
   </div>
 
-  <!-- Script -->
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Zoomed Image" />
+  </div>
+
+  <!-- Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const loader = document.querySelector('.loader-wrapper');
@@ -135,11 +140,27 @@
         content.classList.add('hidden');
         document.getElementById('buildingGallery').classList.remove('hidden');
       });
+
+      // Lightbox setup
+      document.querySelectorAll('.gallery-grid img').forEach(img => {
+        img.addEventListener('click', (e) => {
+          document.getElementById('lightbox-img').src = e.target.src;
+          document.getElementById('lightbox').classList.remove('hidden');
+        });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
     });
 
     function closeBuildingGallery() {
       document.getElementById('buildingGallery').classList.add('hidden');
       document.getElementById('mainContent').classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
     }
   </script>
 </body>
