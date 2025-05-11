@@ -17,12 +17,6 @@ img {
   display: block;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* === HIDDEN CLASS === */
 .hidden {
   display: none !important;
 }
@@ -30,36 +24,39 @@ a {
 /* === LOADER === */
 .loader-wrapper {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #0e0e12;
+  inset: 0;
+  background: #0e0e12;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
   transition: opacity 0.3s ease;
 }
 
 .loader-img {
-  width: 150px;
-  height: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   margin-bottom: 1rem;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.85; }
 }
 
 .loader-text {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #00ffff;
-  font-weight: bold;
 }
 
 /* === CONTAINER === */
 .container {
-  padding: 2rem;
   max-width: 1200px;
   margin: auto;
+  padding: 2rem;
 }
 
 /* === HEADER === */
@@ -69,11 +66,11 @@ a {
 }
 
 .profile-pic img {
-  border-radius: 50%;
   width: 150px;
   height: 150px;
-  object-fit: cover;
   border: 4px solid #00ffff;
+  border-radius: 50%;
+  object-fit: cover;
   margin-bottom: 1rem;
 }
 
@@ -82,17 +79,15 @@ a {
   color: #00ffff;
 }
 
-/* === CARD STYLE === */
+/* === CARD === */
 .card {
-  background-color: #1a1a22;
+  background: #1a1a22;
   padding: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* === CARD HEADER === */
 .card-header {
   display: flex;
   align-items: center;
@@ -100,14 +95,13 @@ a {
 }
 
 .card-header-icon {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #00ffff;
   margin-right: 1rem;
 }
 
 .card-header-text h2 {
   font-size: 1.5rem;
-  margin: 0;
 }
 
 .header-subtext {
@@ -115,33 +109,39 @@ a {
   color: #aaa;
 }
 
-/* === CARD CONTENT === */
-.card-content p {
+.card-content p, .card-content ul {
   font-size: 1rem;
   line-height: 1.6;
 }
 
-/* === SERVICES WIDGET === */
+.card-content ul {
+  padding-left: 1rem;
+}
+
+.card-content ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* === SERVICES === */
 .services-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
   justify-content: center;
+  gap: 1rem;
 }
 
 .service-item {
-  background-color: #2a2a36;
-  border-radius: 0.75rem;
+  background: #2a2a36;
   padding: 1rem;
-  width: 150px;
+  width: 160px;
   text-align: center;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .service-item:hover {
   transform: scale(1.05);
-  background-color: #333344;
 }
 
 .service-icon {
@@ -150,46 +150,48 @@ a {
   margin-bottom: 0.5rem;
 }
 
-.service-item h3 {
-  font-size: 1rem;
-  color: #fff;
+/* === GALLERY PAGE === */
+.gallery-page {
+  padding: 2rem;
+  background: #0e0e12;
 }
 
-/* === GALLERY STYLE === */
-.gallery-container {
-  display: flex;
-  flex-wrap: wrap;
+.gallery-heading {
+  text-align: center;
+  color: #00ffff;
+  margin-bottom: 1rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
 }
 
-.gallery-item {
-  width: 200px;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+.gallery-grid img {
+  border-radius: 10px;
+  border: 2px solid #00ffff33;
   transition: transform 0.2s;
 }
 
-.gallery-item:hover {
-  transform: scale(1.05);
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+
+/* === BACK BUTTON === */
+.back-btn {
+  background: none;
+  border: none;
+  color: #00ffff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 /* === FOOTER === */
 footer {
   text-align: center;
-  margin-top: 2rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #888;
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  .service-item {
-    width: 100%;
-  }
-
-  .gallery-item {
-    width: 100%;
-  }
+  margin-top: 2rem;
 }
