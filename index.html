@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bzclkk | Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <!-- Loader -->
-  <div class="loader-wrapper" id="loader">
-    <img src="images/hello-kitty.png" alt="Hello Kitty Loader" class="loader-img" id="loaderImage" />
+  <div class="loader-wrapper">
+    <img src="images/hello-kitty.png" class="loader-img" alt="Loading" />
     <div class="loader-text">bzclk</div>
   </div>
 
-  <!-- Main Content -->
+  <!-- Main Container -->
   <div class="container hidden" id="mainContent">
     <header class="profile-header">
       <div class="profile-pic">
@@ -25,125 +25,136 @@
       </div>
     </header>
 
-    <!-- About -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon">
-          <i class="fas fa-user"></i>
+    <main class="card-container">
+      <!-- About Me -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon"><i class="fas fa-user"></i></div>
+          <div class="card-header-text">
+            <h2>About Me</h2>
+            <div class="header-subtext">Learn more about me.</div>
+          </div>
         </div>
-        <div class="card-header-text">
-          <h2>About Me</h2>
-          <div class="header-subtext">Learn more about me.</div>
+        <div class="card-content">
+          <p>Hey! I am Bzclk, I am 16 years old, I love coding, graphic design and 3D Modeling, cheers!</p>
         </div>
       </div>
-      <div class="card-content">
-        <p>Hey! I am Bzclk, I am 16 years old, I love coding, graphic design and 3D Modeling, cheers!</p>
-      </div>
-    </div>
 
-    <!-- Services -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon">
-          <i class="fas fa-cogs"></i>
+      <!-- Skills -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon"><i class="fas fa-code"></i></div>
+          <div class="card-header-text">
+            <h2>Skills</h2>
+            <div class="header-subtext">Technical expertise</div>
+          </div>
         </div>
-        <div class="card-header-text">
-          <h2>Services</h2>
-          <div class="header-subtext">What I offer</div>
-        </div>
-      </div>
-      <div class="card-content">
-        <div class="services-list">
-          <div class="service-item">
-            <div class="service-icon">
-              <i class="fas fa-paint-brush"></i>
-            </div>
-            <h3>Graphic Design</h3>
-          </div>
-          <div class="service-item">
-            <div class="service-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <h3>Web Development</h3>
-          </div>
-          <div class="service-item">
-            <div class="service-icon">
-              <i class="fas fa-robot"></i>
-            </div>
-            <h3>Bot Development</h3>
-          </div>
-          <div class="service-item" id="buildingBtn">
-            <div class="service-icon">
-              <i class="fas fa-hammer"></i>
-            </div>
-            <h3>Building</h3>
-          </div>
+        <div class="card-content">
+          <ul>
+            <li><i class="fas fa-terminal"></i> NodeJS Coding</li>
+            <li><i class="fas fa-file-code"></i> HTML Coding</li>
+            <li><i class="fas fa-paint-brush"></i> Graphic Design</li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <!-- Building Gallery Subpage (Initially hidden) -->
-    <div class="card hidden" id="buildingGallery">
-      <div class="card-header">
-        <div class="card-header-icon">
-          <i class="fas fa-images"></i>
+      <!-- Projects -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon"><i class="fas fa-check-circle"></i></div>
+          <div class="card-header-text">
+            <h2>Projects</h2>
+            <div class="header-subtext">Completed work</div>
+          </div>
         </div>
-        <div class="card-header-text">
-          <h2>Building Gallery</h2>
-          <div class="header-subtext">A look at my builds</div>
+        <div class="card-content">
+          <ul>
+            <li><i class="fas fa-check"></i> Newport Utilities</li>
+            <li><i class="fas fa-check"></i> Miami Utilities</li>
+            <li><i class="fas fa-check"></i> Newport Website</li>
+          </ul>
         </div>
       </div>
-      <div class="card-content gallery-container">
-        <img src="images/building1.png" class="gallery-item" alt="Build 1" />
-        <img src="images/building2.png" class="gallery-item" alt="Build 2" />
-        <img src="images/building3.png" class="gallery-item" alt="Build 3" />
-        <img src="images/building4.png" class="gallery-item" alt="Build 4" />
-        <img src="images/building5.png" class="gallery-item" alt="Build 5" />
-        <img src="images/building6.png" class="gallery-item" alt="Build 6" />
-        <img src="images/building7.png" class="gallery-item" alt="Build 7" />
-        <img src="images/building8.png" class="gallery-item" alt="Build 8" />
-        <img src="images/building9.png" class="gallery-item" alt="Build 9" />
+
+      <!-- Services -->
+      <div class="card" id="servicesCard">
+        <div class="card-header">
+          <div class="card-header-icon"><i class="fas fa-cogs"></i></div>
+          <div class="card-header-text">
+            <h2>Services</h2>
+            <div class="header-subtext">What I offer</div>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="services-list">
+            <div class="service-item">
+              <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+              <h3>Graphic Design</h3>
+            </div>
+            <div class="service-item">
+              <div class="service-icon"><i class="fas fa-code"></i></div>
+              <h3>Web Development</h3>
+            </div>
+            <div class="service-item">
+              <div class="service-icon"><i class="fas fa-robot"></i></div>
+              <h3>Bot Development</h3>
+            </div>
+            <div class="service-item" onclick="openBuildingGallery()">
+              <div class="service-icon"><i class="fas fa-hammer"></i></div>
+              <h3>Building</h3>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <!-- Building Gallery Subpage -->
+      <div class="card hidden" id="buildingGallery">
+        <div class="card-header">
+          <div class="card-header-icon"><i class="fas fa-images"></i></div>
+          <div class="card-header-text">
+            <h2>Building Gallery</h2>
+            <div class="header-subtext">A look at my builds</div>
+          </div>
+        </div>
+        <div class="card-content gallery-container">
+          <img src="images/1.png" class="gallery-item" alt="Build 1" />
+          <img src="images/2.png" class="gallery-item" alt="Build 2" />
+          <img src="images/3.png" class="gallery-item" alt="Build 3" />
+          <img src="images/4.png" class="gallery-item" alt="Build 4" />
+          <img src="images/5.png" class="gallery-item" alt="Build 5" />
+          <img src="images/6.png" class="gallery-item" alt="Build 6" />
+          <img src="images/7.png" class="gallery-item" alt="Build 7" />
+          <img src="images/8.png" class="gallery-item" alt="Build 8" />
+          <img src="images/9.png" class="gallery-item" alt="Build 9" />
+        </div>
+      </div>
+    </main>
 
     <footer>
       <p>© 2025 | bzclk/2vhj | All rights reserved.</p>
     </footer>
   </div>
 
+  <!-- Scripts -->
   <script>
+    // Loader logic
     document.addEventListener('DOMContentLoaded', function () {
-      const loader = document.getElementById('loader');
-      const main = document.getElementById('mainContent');
-      const loaderImage = document.getElementById('loaderImage');
-      const loadingText = document.querySelector('.loader-text');
-      let dots = 0;
-      let progress = 0;
-
-      const loaderInterval = setInterval(() => {
-        dots = (dots + 1) % 4;
-        loadingText.textContent = 'bzclk' + '.'.repeat(dots);
-        progress += 25;
-        if (progress >= 100) {
-          clearInterval(loaderInterval);
-          loader.style.opacity = '0';
-          setTimeout(() => {
-            loader.style.display = 'none';
-            loaderImage.style.display = 'none';
-            main.classList.remove('hidden');
-          }, 300);
-        }
-      }, 100);
-
-      // Building widget logic
-      const buildingBtn = document.getElementById('buildingBtn');
-      const buildingGallery = document.getElementById('buildingGallery');
-
-      buildingBtn.addEventListener('click', () => {
-        buildingGallery.classList.remove('hidden');
-        buildingGallery.scrollIntoView({ behavior: 'smooth' });
-      });
+      const loader = document.querySelector('.loader-wrapper');
+      const content = document.getElementById('mainContent');
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.classList.add('hidden');
+          content.classList.remove('hidden');
+        }, 300);
+      }, 1000);
     });
+
+    // Open Building Gallery
+    function openBuildingGallery() {
+      document.getElementById('servicesCard').classList.add('hidden');
+      document.getElementById('buildingGallery').classList.remove('hidden');
+    }
   </script>
 </body>
 </html>
