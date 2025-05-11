@@ -1,4 +1,3 @@
-/* === GENERAL RESET === */
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +6,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #0e0e12;
+  background: #0e0e12;
   color: #fff;
   overflow-x: hidden;
 }
@@ -17,39 +16,27 @@ img {
   display: block;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.hidden {
+  display: none;
 }
 
-/* === LOADER === */
+/* Loader */
 .loader-wrapper {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #0e0e12;
+  inset: 0;
+  background: #0e0e12;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  z-index: 999;
-  transition: opacity 0.3s ease;
+  justify-content: center;
 }
 
-.loader-image img {
-  width: 100px;
-  height: 100px;
+.loader-img {
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  border: 3px solid #00ffff;
-  animation: pulse 1.2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
+  animation: pulse 1s infinite;
 }
 
 .loader-text {
@@ -58,41 +45,40 @@ a {
   color: #00ffff;
 }
 
-/* === HIDDEN === */
-.hidden {
-  display: none;
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.85; }
 }
 
-/* === CONTAINER === */
+/* Container & Layout */
 .container {
-  padding: 2rem;
   max-width: 1200px;
   margin: auto;
+  padding: 2rem;
 }
 
-/* === PROFILE HEADER === */
 .profile-header {
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .profile-pic img {
-  border-radius: 50%;
   width: 150px;
   height: 150px;
-  object-fit: cover;
   border: 4px solid #00ffff;
+  border-radius: 50%;
+  object-fit: cover;
   margin-bottom: 1rem;
 }
 
 .header-text h1 {
-  font-size: 2.5rem;
   color: #00ffff;
+  font-size: 2.5rem;
 }
 
-/* === CARD STYLES === */
+/* Cards */
 .card {
-  background-color: #1a1a22;
+  background: #1a1a22;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   border-radius: 1rem;
@@ -106,9 +92,9 @@ a {
 }
 
 .card-header-icon {
-  margin-right: 1rem;
-  font-size: 1.5rem;
   color: #00ffff;
+  font-size: 1.5rem;
+  margin-right: 1rem;
 }
 
 .card-header-text h2 {
@@ -116,57 +102,48 @@ a {
 }
 
 .header-subtext {
-  font-size: 0.9rem;
   color: #aaa;
+  font-size: 0.9rem;
 }
 
-.card-content p {
+.card-content p, .card-content ul {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* === SKILLS === */
+/* Skills */
 .skills-list {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
 .skill-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   background: #2a2a36;
   padding: 0.75rem 1rem;
   border-radius: 8px;
-  font-size: 1rem;
   color: #00ffff;
-}
-
-/* === PROJECTS === */
-.project-list .project-item {
   display: flex;
+  gap: 0.5rem;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
 }
 
-/* === SERVICES === */
+/* Services */
 .services-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
   justify-content: center;
+  gap: 1rem;
 }
 
 .service-item {
   background: #2a2a36;
   padding: 1rem;
-  border-radius: 0.75rem;
-  text-align: center;
+  border-radius: 10px;
   width: 160px;
+  text-align: center;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
 }
 
 .service-item:hover {
@@ -179,18 +156,26 @@ a {
   color: #00ffff;
 }
 
-/* === GALLERY === */
+/* Gallery */
 .building-gallery {
   padding: 2rem;
-  color: white;
   background: #0e0e12;
 }
 
-.gallery-heading {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.back-btn {
+  background: none;
   color: #00ffff;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.gallery-heading {
+  color: #00ffff;
+  font-size: 2rem;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .gallery-grid {
@@ -200,28 +185,19 @@ a {
 }
 
 .gallery-grid img {
-  border-radius: 10px;
-  border: 2px solid #00ffff44;
-  transition: transform 0.2s;
+  border: 2px solid #00ffff33;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-.back-btn {
-  background: none;
-  border: none;
-  color: #00ffff;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-
-/* === FOOTER === */
+/* Footer */
 footer {
   text-align: center;
-  margin-top: 2rem;
   font-size: 0.9rem;
   color: #888;
+  margin-top: 2rem;
 }
