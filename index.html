@@ -5,19 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bzclkk | Portfolio</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <!-- Loader -->
   <div class="loader-wrapper">
-    <div class="loader-image">
-      <img src="images/hello-kitty.png" alt="Loading..." />
-    </div>
+    <img src="images/hello-kitty.png" alt="Hello Kitty Loader" class="loader-img" />
     <div class="loader-text">bzclk</div>
   </div>
 
-  <!-- Main Content -->
+  <!-- Main Container -->
   <div class="container hidden">
+    <!-- Header -->
     <header class="profile-header">
       <div class="profile-pic">
         <img src="https://cdn.discordapp.com/attachments/1305591921070313504/1362459867163529326/thumb-1920-340090.jpg" alt="bzclk">
@@ -27,7 +26,7 @@
       </div>
     </header>
 
-    <!-- About Me -->
+    <!-- About -->
     <div class="card">
       <div class="card-header">
         <div class="card-header-icon"><i class="fas fa-user"></i></div>
@@ -69,11 +68,11 @@
         </div>
       </div>
       <div class="card-content">
-        <div class="project-list">
-          <div class="project-item"><i class="fas fa-check"></i> Newport Utilities</div>
-          <div class="project-item"><i class="fas fa-check"></i> Miami Utilities</div>
-          <div class="project-item"><i class="fas fa-check"></i> Newport Website</div>
-        </div>
+        <ul>
+          <li>✅ Newport Utilities</li>
+          <li>✅ Miami Utilities</li>
+          <li>✅ Newport Website</li>
+        </ul>
       </div>
     </div>
 
@@ -102,41 +101,39 @@
     </footer>
   </div>
 
-  <!-- Building Gallery -->
+  <!-- Gallery View -->
   <div id="buildingGallery" class="building-gallery hidden">
     <button onclick="closeBuildingGallery()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
     <h2 class="gallery-heading">Building Projects</h2>
     <div class="gallery-grid">
-      <img src="images/1.png" />
-      <img src="images/2.png" />
-      <img src="images/3.png" />
-      <img src="images/4.png" />
-      <img src="images/5.png" />
-      <img src="images/6.png" />
-      <img src="images/7.png" />
-      <img src="images/8.png" />
-      <img src="images/9.png" />
+      <img src="images/1.png" alt="Project 1">
+      <img src="images/2.png" alt="Project 2">
+      <img src="images/3.png" alt="Project 3">
+      <img src="images/4.png" alt="Project 4">
+      <img src="images/5.png" alt="Project 5">
+      <img src="images/6.png" alt="Project 6">
+      <img src="images/7.png" alt="Project 7">
+      <img src="images/8.png" alt="Project 8">
+      <img src="images/9.png" alt="Project 9">
     </div>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const loaderWrapper = document.querySelector('.loader-wrapper');
-      const loadingText = document.querySelector('.loader-text');
-      const container = document.querySelector('.container');
-      let dots = 0;
-      let progress = 0;
-
-      const loaderInterval = setInterval(() => {
+      const loader = document.querySelector('.loader-wrapper');
+      const text = document.querySelector('.loader-text');
+      const main = document.querySelector('.container');
+      let dots = 0, progress = 0;
+      const interval = setInterval(() => {
         dots = (dots + 1) % 4;
-        loadingText.textContent = `bzclk${'.'.repeat(dots)}`;
+        text.textContent = 'bzclk' + '.'.repeat(dots);
         progress += 40;
         if (progress >= 100) {
-          clearInterval(loaderInterval);
-          loaderWrapper.style.opacity = '0';
+          clearInterval(interval);
+          loader.style.opacity = 0;
           setTimeout(() => {
-            loaderWrapper.style.display = 'none';
-            container.classList.remove('hidden');
+            loader.style.display = 'none';
+            main.classList.remove('hidden');
           }, 300);
         }
       }, 100);
@@ -148,8 +145,8 @@
     }
 
     function closeBuildingGallery() {
-      document.getElementById('buildingGallery').classList.add('hidden');
       document.querySelector('.container').style.display = 'block';
+      document.getElementById('buildingGallery').classList.add('hidden');
     }
   </script>
 </body>
