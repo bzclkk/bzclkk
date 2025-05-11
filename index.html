@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="container" style="display: none;">
+  <div class="container hidden">
     <header class="profile-header">
       <div class="profile-pic">
         <img src="https://cdn.discordapp.com/attachments/1305591921070313504/1362459867163529326/thumb-1920-340090.jpg" alt="bzclk">
@@ -94,10 +94,16 @@
           loaderWrapper.style.opacity = '0';
           setTimeout(() => {
             loaderWrapper.style.display = 'none';
-            container.style.display = 'block';
+            container.classList.remove('hidden');
           }, 300);
         }
       }, 100);
+
+      // Hard fallback in case something breaks
+      setTimeout(() => {
+        loaderWrapper.style.display = 'none';
+        container.classList.remove('hidden');
+      }, 5000);
     });
   </script>
 </body>
