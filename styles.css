@@ -155,6 +155,137 @@ a {
   color: #00ffff;
 }
 
+/* === SKILLS === */
+.skills-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.skill-item {
+  background: #2a2a36;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: #00ffff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* === PROJECTS === */
+.project-list .project-item {
+  background: #2a2a36;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+}
+
+/* === STATS + MUSIC PLAYER === */
+.stats-container {
+  margin: 1rem 0;
+}
+
+.stats-inner {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.stat-item h3 {
+  font-size: 2rem;
+  color: #00ffff;
+  margin: 0;
+}
+
+.stat-item p {
+  color: #ccc;
+}
+
+.music-player {
+  background-color: #121219;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.player-controls {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: #00ffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.progress-container {
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.progress {
+  height: 100%;
+  background-color: #00ffff;
+  width: 40%; /* demo value */
+  transition: width 0.3s ease;
+}
+
+.time-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* === TIMELINE (Experience) === */
+.timeline {
+  position: relative;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #00ffff;
+}
+
+.timeline-item {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #00ffff;
+  border-radius: 50%;
+  position: absolute;
+  left: -6px;
+  top: 5px;
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 0.25rem;
+}
+
 /* === FOOTER === */
 footer {
   text-align: center;
