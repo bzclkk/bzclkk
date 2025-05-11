@@ -6,61 +6,6 @@
   <title>Bzclkk | Portfolio</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* === GALLERY STYLES === */
-    .building-gallery {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #0e0e12;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-      overflow-y: auto;
-      transition: opacity 0.3s ease;
-    }
-
-    .building-gallery.hidden {
-      display: none;
-    }
-
-    .gallery-heading {
-      color: #00ffff;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      width: 100%;
-      max-width: 1200px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-
-    .back-btn {
-      align-self: flex-start;
-      background: none;
-      color: #00ffff;
-      border: 2px solid #00ffff;
-      padding: 0.5rem 1rem;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
   <!-- Loader -->
@@ -73,10 +18,68 @@
     </div>
   </div>
 
-  <!-- Main Content -->
+  <!-- Main Site -->
   <div class="container hidden">
-    <!-- Example cards... About, Skills, Projects, etc. -->
-    <!-- Services (shortened for example) -->
+    <header class="profile-header">
+      <div class="profile-pic">
+        <img src="https://cdn.discordapp.com/attachments/1305591921070313504/1362459867163529326/thumb-1920-340090.jpg" alt="bzclk">
+      </div>
+      <div class="header-text">
+        <h1>Bzclkk</h1>
+      </div>
+    </header>
+
+    <!-- About -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon"><i class="fas fa-user"></i></div>
+        <div class="card-header-text">
+          <h2>About Me</h2>
+          <div class="header-subtext">Learn more about me.</div>
+        </div>
+      </div>
+      <div class="card-content">
+        <p>Hey! I am Bzclk, I am 16 years old, I love coding, graphic design and 3D Modeling, cheers!</p>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon"><i class="fas fa-code"></i></div>
+        <div class="card-header-text">
+          <h2>Skills</h2>
+          <div class="header-subtext">Technical expertise</div>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="skills-list">
+          <div class="skill-item"><i class="fab fa-node-js"></i> NodeJS Coding</div>
+          <div class="skill-item"><i class="fab fa-html5"></i> HTML Coding</div>
+          <div class="skill-item"><i class="fas fa-paint-brush"></i> Graphic Design</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="card-header-text">
+          <h2>Projects</h2>
+          <div class="header-subtext">Completed work</div>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="project-list">
+          <div class="project-item"><i class="fas fa-check"></i> Newport Utilities</div>
+          <div class="project-item"><i class="fas fa-check"></i> Miami Utilities</div>
+          <div class="project-item"><i class="fas fa-check"></i> Newport Website</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services -->
     <div class="card">
       <div class="card-header">
         <div class="card-header-icon"><i class="fas fa-cogs"></i></div>
@@ -87,11 +90,68 @@
       </div>
       <div class="card-content">
         <div class="services-list">
-          <!-- Other services here -->
-          <div class="service-item" onclick="openBuildingGallery()">
-            <div class="service-icon"><i class="fas fa-hammer"></i></div>
-            <div class="service-details"><h3>Building</h3></div>
-          </div>
+          <div class="service-item"><div class="service-icon"><i class="fas fa-palette"></i></div><h3>Graphic Design</h3></div>
+          <div class="service-item"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Web Development</h3></div>
+          <div class="service-item"><div class="service-icon"><i class="fas fa-robot"></i></div><h3>Bot Development</h3></div>
+          <div class="service-item" onclick="openBuildingGallery()"><div class="service-icon"><i class="fas fa-hammer"></i></div><h3>Building</h3></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon"><i class="fas fa-trophy"></i></div>
+        <div class="card-header-text">
+          <h2>Achievements</h2>
+          <div class="header-subtext">Professional highlights</div>
+        </div>
+      </div>
+      <div class="card-content stats-inner">
+        <div class="stat-item"><h3>20+</h3><p>Projects</p></div>
+        <div class="stat-item"><h3>35+</h3><p>Clients</p></div>
+        <div class="stat-item"><h3>1.5+</h3><p>Years</p></div>
+      </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+      <p><strong>1AM</strong><br><small>The bear guy</small></p>
+      <div class="player-controls">
+        <button class="control-btn"><i class="fas fa-backward"></i></button>
+        <button class="control-btn"><i class="fas fa-play"></i></button>
+        <button class="control-btn"><i class="fas fa-forward"></i></button>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress" style="width: 40%;"></div></div>
+        <div class="time-info"><span>0:00</span><span>2:14</span></div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon"><i class="fas fa-briefcase"></i></div>
+        <div class="card-header-text">
+          <h2>Experience</h2>
+          <div class="header-subtext">Career journey</div>
+        </div>
+      </div>
+      <div class="card-content timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2025 – Present</div>
+          <p><strong>Developer & Designer</strong><br>I can now code in 2+ languages, design logos & banners.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Late 2024</div>
+          <p><strong>Banner Designer</strong><br>Started learning how to make banners & code.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2024 Early</div>
+          <p><strong>ERLC Journey</strong><br>Started playing ERLC, had no skills in anything.</p>
         </div>
       </div>
     </div>
@@ -102,30 +162,29 @@
     </footer>
   </div>
 
-  <!-- Building Gallery Subpage -->
+  <!-- BUILDING GALLERY OVERLAY -->
   <div id="buildingGallery" class="building-gallery hidden">
     <button onclick="closeBuildingGallery()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
     <h2 class="gallery-heading">Building Projects</h2>
     <div class="gallery-grid">
-      <img src="images/3668430472_132883945124745_1746854923255.png" alt="Build 1" />
-      <img src="images/f65e675e-1877-4d38-b44f-3d282ecd9a42.png" alt="Build 2" />
-      <img src="images/ba2226f6-37da-4083-9b2e-56a34ec1d1ae.png" alt="Build 3" />
-      <img src="images/7ef3c229-5b67-44ec-8a8e-6fd1fdfc8e48.png" alt="Build 4" />
-      <img src="images/3e8b6505-b3ef-4815-8c36-56204fe9e1d8.png" alt="Build 5" />
-      <img src="images/cb03df80-a7e9-47f7-9294-da3a8eda38a1.png" alt="Build 6" />
-      <img src="images/8892281b-d03e-4b25-8ccb-304e960815b5.png" alt="Build 7" />
-      <img src="images/e746ce87-e728-4fdb-81ed-e30df157d998.png" alt="Build 8" />
-      <img src="images/fe3a2bf2-cd21-47f1-b0d0-1c9804f5a0be.png" alt="Build 9" />
+      <img src="images/3668430472_132883945124745_1746854923255.png" />
+      <img src="images/f65e675e-1877-4d38-b44f-3d282ecd9a42.png" />
+      <img src="images/ba2226f6-37da-4083-9b2e-56a34ec1d1ae.png" />
+      <img src="images/7ef3c229-5b67-44ec-8a8e-6fd1fdfc8e48.png" />
+      <img src="images/3e8b6505-b3ef-4815-8c36-56204fe9e1d8.png" />
+      <img src="images/cb03df80-a7e9-47f7-9294-da3a8eda38a1.png" />
+      <img src="images/8892281b-d03e-4b25-8ccb-304e960815b5.png" />
+      <img src="images/e746ce87-e728-4fdb-81ed-e30df157d998.png" />
+      <img src="images/fe3a2bf2-cd21-47f1-b0d0-1c9804f5a0be.png" />
     </div>
   </div>
 
-  <!-- Script for loader & gallery toggle -->
+  <!-- Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const loaderWrapper = document.querySelector('.loader-wrapper');
       const loadingText = document.querySelector('.loader-text');
       const container = document.querySelector('.container');
-
       let dots = 0;
       let progress = 0;
 
@@ -133,7 +192,6 @@
         dots = (dots + 1) % 4;
         loadingText.textContent = `bzclk${'.'.repeat(dots)}`;
         progress += 40;
-
         if (progress >= 100) {
           clearInterval(loaderInterval);
           loaderWrapper.style.opacity = '0';
