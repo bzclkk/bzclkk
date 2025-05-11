@@ -4,22 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bzclkk | Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <!-- Loader -->
-  <div class="loader-wrapper">
-    <img src="images/hello-kitty.png" alt="Hello Kitty Loader" class="loader-img" />
+  <div class="loader-wrapper" id="loader">
+    <img src="images/hello-kitty.png" alt="Hello Kitty Loader" class="loader-img" id="loaderImage" />
     <div class="loader-text">bzclk</div>
   </div>
 
-  <!-- Main Container -->
-  <div class="container hidden">
-    <!-- Header -->
+  <!-- Main Content -->
+  <div class="container hidden" id="mainContent">
     <header class="profile-header">
       <div class="profile-pic">
-        <img src="https://cdn.discordapp.com/attachments/1305591921070313504/1362459867163529326/thumb-1920-340090.jpg" alt="bzclk">
+        <img src="images/hello-kitty.png" alt="bzclk">
       </div>
       <div class="header-text">
         <h1>Bzclkk</h1>
@@ -29,7 +28,9 @@
     <!-- About -->
     <div class="card">
       <div class="card-header">
-        <div class="card-header-icon"><i class="fas fa-user"></i></div>
+        <div class="card-header-icon">
+          <i class="fas fa-user"></i>
+        </div>
         <div class="card-header-text">
           <h2>About Me</h2>
           <div class="header-subtext">Learn more about me.</div>
@@ -40,46 +41,12 @@
       </div>
     </div>
 
-    <!-- Skills -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon"><i class="fas fa-code"></i></div>
-        <div class="card-header-text">
-          <h2>Skills</h2>
-          <div class="header-subtext">Technical expertise</div>
-        </div>
-      </div>
-      <div class="card-content">
-        <div class="skills-list">
-          <div class="skill-item"><i class="fab fa-node"></i> NodeJS Coding</div>
-          <div class="skill-item"><i class="fab fa-html5"></i> HTML Coding</div>
-          <div class="skill-item"><i class="fas fa-palette"></i> Graphic Design</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Projects -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon"><i class="fas fa-check-circle"></i></div>
-        <div class="card-header-text">
-          <h2>Projects</h2>
-          <div class="header-subtext">Completed work</div>
-        </div>
-      </div>
-      <div class="card-content">
-        <ul>
-          <li>✅ Newport Utilities</li>
-          <li>✅ Miami Utilities</li>
-          <li>✅ Newport Website</li>
-        </ul>
-      </div>
-    </div>
-
     <!-- Services -->
     <div class="card">
       <div class="card-header">
-        <div class="card-header-icon"><i class="fas fa-cogs"></i></div>
+        <div class="card-header-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
         <div class="card-header-text">
           <h2>Services</h2>
           <div class="header-subtext">What I offer</div>
@@ -87,67 +54,96 @@
       </div>
       <div class="card-content">
         <div class="services-list">
-          <div class="service-item"><div class="service-icon"><i class="fas fa-palette"></i></div><h3>Graphic Design</h3></div>
-          <div class="service-item"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Web Development</h3></div>
-          <div class="service-item"><div class="service-icon"><i class="fas fa-robot"></i></div><h3>Bot Development</h3></div>
-          <div class="service-item" onclick="openBuildingGallery()"><div class="service-icon"><i class="fas fa-hammer"></i></div><h3>Building</h3></div>
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>Graphic Design</h3>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Web Development</h3>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3>Bot Development</h3>
+          </div>
+          <div class="service-item" id="buildingBtn">
+            <div class="service-icon">
+              <i class="fas fa-hammer"></i>
+            </div>
+            <h3>Building</h3>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Building Gallery Subpage (Initially hidden) -->
+    <div class="card hidden" id="buildingGallery">
+      <div class="card-header">
+        <div class="card-header-icon">
+          <i class="fas fa-images"></i>
+        </div>
+        <div class="card-header-text">
+          <h2>Building Gallery</h2>
+          <div class="header-subtext">A look at my builds</div>
+        </div>
+      </div>
+      <div class="card-content gallery-container">
+        <img src="images/building1.png" class="gallery-item" alt="Build 1" />
+        <img src="images/building2.png" class="gallery-item" alt="Build 2" />
+        <img src="images/building3.png" class="gallery-item" alt="Build 3" />
+        <img src="images/building4.png" class="gallery-item" alt="Build 4" />
+        <img src="images/building5.png" class="gallery-item" alt="Build 5" />
+        <img src="images/building6.png" class="gallery-item" alt="Build 6" />
+        <img src="images/building7.png" class="gallery-item" alt="Build 7" />
+        <img src="images/building8.png" class="gallery-item" alt="Build 8" />
+        <img src="images/building9.png" class="gallery-item" alt="Build 9" />
+      </div>
+    </div>
+
     <footer>
       <p>© 2025 | bzclk/2vhj | All rights reserved.</p>
     </footer>
   </div>
 
-  <!-- Gallery View -->
-  <div id="buildingGallery" class="building-gallery hidden">
-    <button onclick="closeBuildingGallery()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
-    <h2 class="gallery-heading">Building Projects</h2>
-    <div class="gallery-grid">
-      <img src="images/1.png" alt="Project 1">
-      <img src="images/2.png" alt="Project 2">
-      <img src="images/3.png" alt="Project 3">
-      <img src="images/4.png" alt="Project 4">
-      <img src="images/5.png" alt="Project 5">
-      <img src="images/6.png" alt="Project 6">
-      <img src="images/7.png" alt="Project 7">
-      <img src="images/8.png" alt="Project 8">
-      <img src="images/9.png" alt="Project 9">
-    </div>
-  </div>
-
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const loader = document.querySelector('.loader-wrapper');
-      const text = document.querySelector('.loader-text');
-      const main = document.querySelector('.container');
-      let dots = 0, progress = 0;
-      const interval = setInterval(() => {
+      const loader = document.getElementById('loader');
+      const main = document.getElementById('mainContent');
+      const loaderImage = document.getElementById('loaderImage');
+      const loadingText = document.querySelector('.loader-text');
+      let dots = 0;
+      let progress = 0;
+
+      const loaderInterval = setInterval(() => {
         dots = (dots + 1) % 4;
-        text.textContent = 'bzclk' + '.'.repeat(dots);
-        progress += 40;
+        loadingText.textContent = 'bzclk' + '.'.repeat(dots);
+        progress += 25;
         if (progress >= 100) {
-          clearInterval(interval);
-          loader.style.opacity = 0;
+          clearInterval(loaderInterval);
+          loader.style.opacity = '0';
           setTimeout(() => {
             loader.style.display = 'none';
+            loaderImage.style.display = 'none';
             main.classList.remove('hidden');
           }, 300);
         }
       }, 100);
+
+      // Building widget logic
+      const buildingBtn = document.getElementById('buildingBtn');
+      const buildingGallery = document.getElementById('buildingGallery');
+
+      buildingBtn.addEventListener('click', () => {
+        buildingGallery.classList.remove('hidden');
+        buildingGallery.scrollIntoView({ behavior: 'smooth' });
+      });
     });
-
-    function openBuildingGallery() {
-      document.querySelector('.container').style.display = 'none';
-      document.getElementById('buildingGallery').classList.remove('hidden');
-    }
-
-    function closeBuildingGallery() {
-      document.querySelector('.container').style.display = 'block';
-      document.getElementById('buildingGallery').classList.add('hidden');
-    }
   </script>
 </body>
 </html>
