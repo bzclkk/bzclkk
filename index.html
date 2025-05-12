@@ -18,35 +18,40 @@
   <meta property="og:image" content="https://bzclkk.github.io/bzclkk/embed-preview.png" />
   <meta property="og:url" content="https://bzclk.xyz" />
   <meta name="twitter:card" content="summary_large_image" />
+
   <style>
-    .filter-buttons {
-      text-align: center;
+    .fade {
+      transition: opacity 0.5s ease-in-out, transform 0.3s ease;
+    }
+    .fade.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+    }
+    .gallery-filter {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
       margin-bottom: 20px;
     }
-    .filter-btn {
-      background: #111827;
-      color: white;
-      border: 1px solid #2c2f36;
-      border-radius: 999px;
-      padding: 8px 16px;
-      margin: 0 5px;
+    .gallery-filter button {
+      background-color: #1d1f27;
+      color: #fff;
+      border: 1px solid #3d3f47;
+      padding: 6px 12px;
+      border-radius: 20px;
       cursor: pointer;
-      font-weight: 500;
-      transition: background 0.3s ease;
+      transition: 0.3s ease;
     }
-    .filter-btn:hover {
-      background: #1f2937;
+    .gallery-filter button.active, .gallery-filter button:hover {
+      background-color: #2680eb;
     }
-    .filter-btn.active {
-      background-color: #2563eb;
+    .gallery-grid img {
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
-    .gallery-img {
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    .gallery-img.hide {
-      opacity: 0;
-      transform: scale(0.95);
-      pointer-events: none;
+    .gallery-grid img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -58,7 +63,7 @@
   </div>
 
   <!-- Main Content -->
-  <div class="container hidden" id="mainContent">
+  <div class="container fade hidden" id="mainContent">
     <header class="profile-header">
       <div class="profile-pic">
         <img src="images/hello-kitty.png" alt="bzclk">
@@ -143,32 +148,31 @@
   </div>
 
   <!-- Gallery Page -->
-  <div id="buildingGallery" class="gallery-page hidden">
-    <button onclick="closeBuildingGallery()" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</button>
+  <div id="buildingGallery" class="gallery-page fade hidden">
+    <button onclick="closeBuildingGallery()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
     <h2 class="gallery-heading">Building Gallery</h2>
-    <p class="subheading">A showcase of my development work</p>
+    <p class="gallery-subheading">A showcase of my custom buildings</p>
 
-    <div class="filter-buttons">
-      <button class="filter-btn active" onclick="filterImages('all')">All</button>
-      <button class="filter-btn" onclick="filterImages('barrow')">Barrow County</button>
-      <button class="filter-btn" onclick="filterImages('chase')">Chase Bank</button>
+    <div class="gallery-filter">
+      <button class="active" onclick="filterGallery('all')">All</button>
+      <button onclick="filterGallery('barrow')">Barrow County</button>
+      <button onclick="filterGallery('chase')">Chase Bank</button>
     </div>
 
     <div class="gallery-grid">
-      <!-- Barrow County -->
-      <img src="images/1.png" class="gallery-img barrow" alt="1" />
-      <img src="images/2.png" class="gallery-img barrow" alt="2" />
-      <img src="images/3.png" class="gallery-img barrow" alt="3" />
-      <img src="images/4.png" class="gallery-img barrow" alt="4" />
-      <img src="images/5.png" class="gallery-img barrow" alt="5" />
-      <img src="images/6.png" class="gallery-img barrow" alt="6" />
-      <img src="images/7.png" class="gallery-img barrow" alt="7" />
-      <img src="images/8.png" class="gallery-img barrow" alt="8" />
-      <img src="images/9.png" class="gallery-img barrow" alt="9" />
+      <!-- Barrow County (1-9.png) -->
+      <img src="images/1.png" alt="Barrow 1" data-tag="barrow" />
+      <img src="images/2.png" alt="Barrow 2" data-tag="barrow" />
+      <img src="images/3.png" alt="Barrow 3" data-tag="barrow" />
+      <img src="images/4.png" alt="Barrow 4" data-tag="barrow" />
+      <img src="images/5.png" alt="Barrow 5" data-tag="barrow" />
+      <img src="images/6.png" alt="Barrow 6" data-tag="barrow" />
+      <img src="images/7.png" alt="Barrow 7" data-tag="barrow" />
+      <img src="images/8.png" alt="Barrow 8" data-tag="barrow" />
+      <img src="images/9.png" alt="Barrow 9" data-tag="barrow" />
 
       <!-- Chase Bank -->
-      <img src="images/chase1.png" class="gallery-img chase" alt="Chase 1" />
-      <img src="images/chase2.png" class="gallery-img chase" alt="Chase 2" />
+      <img src="images/Chase1.png" alt="Chase Bank" data-tag="chase" />
     </div>
   </div>
 
@@ -177,61 +181,55 @@
     <img id="lightbox-img" src="" alt="Zoomed Image" />
   </div>
 
-  <!-- Scripts -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const loader = document.querySelector('.loader-wrapper');
-      const content = document.getElementById('mainContent');
+    const loader = document.querySelector('.loader-wrapper');
+    const mainContent = document.getElementById('mainContent');
+    const buildingGallery = document.getElementById('buildingGallery');
 
+    window.addEventListener('load', () => {
+      loader.style.opacity = '0';
       setTimeout(() => {
-        loader.style.opacity = '0';
-        setTimeout(() => {
-          loader.classList.add('hidden');
-          content.classList.remove('hidden');
-        }, 300);
-      }, 1000);
+        loader.classList.add('hidden');
+        mainContent.classList.remove('hidden');
+      }, 300);
+    });
 
-      document.getElementById('openGallery').addEventListener('click', () => {
-        content.classList.add('hidden');
-        document.getElementById('buildingGallery').classList.remove('hidden');
-        filterImages('all');
-      });
-
-      document.querySelectorAll('.gallery-grid img').forEach(img => {
-        img.addEventListener('click', (e) => {
-          document.getElementById('lightbox-img').src = e.target.src;
-          document.getElementById('lightbox').classList.remove('hidden');
-        });
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLightbox();
-      });
+    document.getElementById('openGallery').addEventListener('click', () => {
+      mainContent.classList.add('hidden');
+      buildingGallery.classList.remove('hidden');
     });
 
     function closeBuildingGallery() {
-      document.getElementById('buildingGallery').classList.add('hidden');
-      document.getElementById('mainContent').classList.remove('hidden');
+      buildingGallery.classList.add('hidden');
+      mainContent.classList.remove('hidden');
     }
 
     function closeLightbox() {
       document.getElementById('lightbox').classList.add('hidden');
     }
 
-    function filterImages(category) {
-      const buttons = document.querySelectorAll(".filter-btn");
-      buttons.forEach(btn => btn.classList.remove("active"));
-      document.querySelector(`.filter-btn[onclick="filterImages('${category}')"]`).classList.add("active");
+    function filterGallery(tag) {
+      const buttons = document.querySelectorAll('.gallery-filter button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
 
-      const images = document.querySelectorAll(".gallery-img");
+      const images = document.querySelectorAll('.gallery-grid img');
       images.forEach(img => {
-        if (category === 'all' || img.classList.contains(category)) {
-          img.classList.remove('hide');
-        } else {
-          img.classList.add('hide');
-        }
+        const match = tag === 'all' || img.dataset.tag === tag;
+        img.style.display = match ? 'block' : 'none';
       });
     }
+
+    document.querySelectorAll('.gallery-grid img').forEach(img => {
+      img.addEventListener('click', (e) => {
+        document.getElementById('lightbox-img').src = e.target.src;
+        document.getElementById('lightbox').classList.remove('hidden');
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
 </body>
 </html>
