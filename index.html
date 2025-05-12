@@ -69,7 +69,7 @@
       </div>
     </div>
 
-    <!-- Projects -->
+    <!-- Projects (Updated) -->
     <div class="card">
       <div class="card-header">
         <div class="card-header-icon"><i class="fas fa-check-circle"></i></div>
@@ -80,9 +80,9 @@
       </div>
       <div class="card-content">
         <ul>
-          <li><i class="fas fa-check"></i> Newport Utilities for: FSPRx Utilities</li>
-          <li><i class="fas fa-check"></i> Miami Utilities: Barrow County, GA</li>
-          <li><i class="fas fa-check"></i> Newport Website: Calm Coast Roleplay Website</li>
+          <li><i class="fas fa-check"></i> FSPRx Utilities</li>
+          <li><i class="fas fa-check"></i> Barrow County, GA</li>
+          <li><i class="fas fa-check"></i> Calm Coast Roleplay Website</li>
         </ul>
       </div>
     </div>
@@ -130,7 +130,7 @@
 
   <!-- Lightbox -->
   <div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="" />
+    <img id="lightbox-img" src="" alt="Zoomed Image" />
   </div>
 
   <!-- Scripts -->
@@ -156,9 +156,7 @@
       // Lightbox setup
       document.querySelectorAll('.gallery-grid img').forEach(img => {
         img.addEventListener('click', (e) => {
-          const lightboxImage = document.getElementById('lightbox-img');
-          lightboxImage.src = e.target.src;
-          lightboxImage.alt = e.target.alt || "Zoomed Image";
+          document.getElementById('lightbox-img').src = e.target.src;
           document.getElementById('lightbox').classList.remove('hidden');
         });
       });
