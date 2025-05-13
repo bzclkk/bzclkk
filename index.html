@@ -22,7 +22,7 @@
 <body>
   <!-- Loader -->
   <div class="loader-wrapper">
-    <img src="images/hello-kitty.png" class="loader-img" alt="Loading..." />
+    <img src="images/hello-kitty.png" class="loader-img" />
     <div class="loader-text">bzclk</div>
   </div>
 
@@ -30,7 +30,7 @@
   <div class="container hidden" id="mainContent">
     <header class="profile-header">
       <div class="profile-pic">
-        <img src="images/hello-kitty.png" alt="bzclk">
+        <img src="images/hello-kitty.png">
       </div>
       <div class="header-text">
         <h1>Bzclkk</h1>
@@ -69,7 +69,7 @@
       </div>
     </div>
 
-    <!-- Projects (Updated) -->
+    <!-- Projects -->
     <div class="card">
       <div class="card-header">
         <div class="card-header-icon"><i class="fas fa-check-circle"></i></div>
@@ -116,15 +116,15 @@
     <button onclick="closeBuildingGallery()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
     <h2 class="gallery-heading">Building Gallery</h2>
     <div class="gallery-grid">
-      <img src="images/1.png" alt="1" />
-      <img src="images/2.png" alt="2" />
-      <img src="images/3.png" alt="3" />
-      <img src="images/4.png" alt="4" />
-      <img src="images/5.png" alt="5" />
-      <img src="images/6.png" alt="6" />
-      <img src="images/7.png" alt="7" />
-      <img src="images/8.png" alt="8" />
-      <img src="images/9.png" alt="9" />
+      <img src="images/1.png" />
+      <img src="images/2.png" />
+      <img src="images/3.png" />
+      <img src="images/4.png" />
+      <img src="images/5.png" />
+      <img src="images/6.png" />
+      <img src="images/7.png" />
+      <img src="images/8.png" />
+      <img src="images/9.png" />
     </div>
   </div>
 
@@ -153,27 +153,31 @@
         document.getElementById('buildingGallery').classList.remove('hidden');
       });
 
-      // Lightbox setup
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+
       document.querySelectorAll('.gallery-grid img').forEach(img => {
         img.addEventListener('click', (e) => {
-          document.getElementById('lightbox-img').src = e.target.src;
-          document.getElementById('lightbox').classList.remove('hidden');
+          lightboxImg.src = e.target.src;
+          lightbox.classList.remove('hidden');
         });
       });
 
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeLightbox();
       });
+
+      window.closeLightbox = function () {
+        lightbox.classList.add('hidden');
+        lightboxImg.src = "";
+      };
+
+      window.closeBuildingGallery = function () {
+        document.getElementById('buildingGallery').classList.add('hidden');
+        content.classList.remove('hidden');
+      };
     });
-
-    function closeBuildingGallery() {
-      document.getElementById('buildingGallery').classList.add('hidden');
-      document.getElementById('mainContent').classList.remove('hidden');
-    }
-
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.add('hidden');
-    }
   </script>
 </body>
 </html>
