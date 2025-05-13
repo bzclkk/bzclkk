@@ -50,7 +50,8 @@ img {
 
 /* Hidden Utility */
 .hidden {
-  display: none;
+  display: none !important;
+  pointer-events: none !important;
 }
 
 /* Main Container */
@@ -257,6 +258,12 @@ footer {
   align-items: center;
   z-index: 10000;
   transition: opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+.lightbox.hidden {
+  display: none !important;
+  pointer-events: none !important;
 }
 
 .lightbox img {
