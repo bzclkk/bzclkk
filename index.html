@@ -4,15 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bzclkk | Portfolio</title>
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- Embed Metadata for Discord -->
   <meta property="og:title" content="Bzclkk | Portfolio" />
   <meta property="og:description" content="Check out my builds, designs, and projects!" />
   <meta property="og:image" content="https://bzclkk.github.io/bzclkk/embed-preview.png" />
@@ -37,94 +31,56 @@
       </div>
     </header>
 
-    <!-- About -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon"><i class="fas fa-user"></i></div>
-        <div class="card-header-text">
-          <h2>About Me</h2>
-          <div class="header-subtext">Learn more about me.</div>
-        </div>
+    <!-- Services Section -->
+    <div class="services">
+      <div class="service-card" onclick="openGallery('building')">
+        <i class="fas fa-hammer"></i>
+        <h3>Building</h3>
       </div>
-      <div class="card-content">
-        <p>Hey! I am Bzclk, I am 16 years old, I love coding, graphic design and 3D Modeling, cheers!</p>
+      <div class="service-card" onclick="openModal('bot')">
+        <i class="fas fa-robot"></i>
+        <h3>Bot Development</h3>
       </div>
     </div>
-
-    <!-- Skills -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon"><i class="fas fa-code"></i></div>
-        <div class="card-header-text">
-          <h2>Skills</h2>
-          <div class="header-subtext">Technical expertise</div>
-        </div>
-      </div>
-      <div class="card-content">
-        <ul>
-          <li><i class="fas fa-terminal"></i> NodeJS Coding</li>
-          <li><i class="fas fa-file-code"></i> HTML Coding</li>
-          <li><i class="fas fa-paint-brush"></i> Graphic Design</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Projects -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon"><i class="fas fa-check-circle"></i></div>
-        <div class="card-header-text">
-          <h2>Projects</h2>
-          <div class="header-subtext">Completed work</div>
-        </div>
-      </div>
-      <div class="card-content">
-        <ul>
-          <li><i class="fas fa-check"></i> FSPRx Utilities</li>
-          <li><i class="fas fa-check"></i> Barrow County, GA</li>
-          <li><i class="fas fa-check"></i> Calm Coast Roleplay Website</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Services -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon"><i class="fas fa-cogs"></i></div>
-        <div class="card-header-text">
-          <h2>Services</h2>
-          <div class="header-subtext">What I offer</div>
-        </div>
-      </div>
-      <div class="card-content">
-        <div class="services-list">
-          <div class="service-item"><div class="service-icon"><i class="fas fa-palette"></i></div><h3>Graphic Design</h3></div>
-          <div class="service-item"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Web Development</h3></div>
-          <div class="service-item"><div class="service-icon"><i class="fas fa-robot"></i></div><h3>Bot Development</h3></div>
-          <div class="service-item" id="openGallery"><div class="service-icon"><i class="fas fa-hammer"></i></div><h3>Building</h3></div>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>© 2025 | bzclk/2vhj | All rights reserved.</p>
-    </footer>
   </div>
 
-  <!-- Gallery Page -->
+  <!-- Building Gallery -->
   <div id="buildingGallery" class="gallery-page hidden">
-    <button onclick="closeBuildingGallery()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
-    <h2 class="gallery-heading">Building Gallery</h2>
-
-    <div class="gallery-select">
-      <label for="locationSelect">Choose a location:</label>
-      <select id="locationSelect">
-        <option value="barrow">Barrow County, GA</option>
-      </select>
+    <button onclick="closeGallery()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+    <h2 class="gallery-heading">Barrow County, GA</h2>
+    <div class="gallery-grid">
+      <img src="images/1.png" alt="1" />
+      <img src="images/2.png" alt="2" />
+      <img src="images/3.png" alt="3" />
+      <img src="images/4.png" alt="4" />
+      <img src="images/5.png" alt="5" />
+      <img src="images/6.png" alt="6" />
+      <img src="images/7.png" alt="7" />
+      <img src="images/8.png" alt="8" />
+      <img src="images/9.png" alt="9" />
     </div>
+  </div>
 
-    <div class="gallery-grid" id="galleryGrid">
-      <!-- JS injects images -->
+  <!-- Bot Modal -->
+  <div id="botModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Bot Development</h2>
+      <p>Custom Discord bots for server management, communities, and specialized functionalities.</p>
+      <div class="modal-gallery">
+        <div class="modal-item">
+          <img src="images/calm-coast.png" alt="Calm Coast Roleplay" />
+          <p>Calm Coast Roleplay</p>
+        </div>
+        <div class="modal-item">
+          <img src="images/florida.png" alt="Florida State Roleplay" />
+          <p>Florida State Roleplay</p>
+        </div>
+        <div class="modal-item">
+          <img src="images/los-angeles.png" alt="Los Angeles State Roleplay" />
+          <p>Los Angeles State Roleplay</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -135,60 +91,50 @@
 
   <!-- Scripts -->
   <script>
-    const imageSets = {
-      barrow: Array.from({length: 9}, (_, i) => `images/${i + 1}.png`)
-    };
-
-    function showGallery(location) {
-      const gallery = document.getElementById('galleryGrid');
-      gallery.innerHTML = '';
-      imageSets[location].forEach(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = location;
-        img.addEventListener('click', () => {
-          document.getElementById('lightbox-img').src = src;
-          document.getElementById('lightbox').classList.remove('hidden');
-        });
-        gallery.appendChild(img);
-      });
+    function openGallery(name) {
+      document.getElementById('mainContent').classList.add('hidden');
+      if (name === 'building') document.getElementById('buildingGallery').classList.remove('hidden');
     }
 
-    function closeBuildingGallery() {
+    function closeGallery() {
       document.getElementById('buildingGallery').classList.add('hidden');
       document.getElementById('mainContent').classList.remove('hidden');
     }
+
+    function openModal(service) {
+      if (service === 'bot') {
+        document.getElementById('botModal').classList.remove('hidden');
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('botModal').classList.add('hidden');
+    }
+
+    document.querySelectorAll('.gallery-grid img').forEach(img => {
+      img.addEventListener('click', (e) => {
+        document.getElementById('lightbox-img').src = e.target.src;
+        document.getElementById('lightbox').classList.remove('hidden');
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
 
     function closeLightbox() {
       document.getElementById('lightbox').classList.add('hidden');
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const loader = document.querySelector('.loader-wrapper');
-      const content = document.getElementById('mainContent');
-
+    window.onload = () => {
       setTimeout(() => {
-        loader.style.opacity = '0';
+        document.querySelector('.loader-wrapper').style.opacity = '0';
         setTimeout(() => {
-          loader.classList.add('hidden');
-          content.classList.remove('hidden');
+          document.querySelector('.loader-wrapper').classList.add('hidden');
+          document.getElementById('mainContent').classList.remove('hidden');
         }, 300);
       }, 1000);
-
-      document.getElementById('openGallery').addEventListener('click', () => {
-        content.classList.add('hidden');
-        document.getElementById('buildingGallery').classList.remove('hidden');
-        showGallery('barrow');
-      });
-
-      document.getElementById('locationSelect').addEventListener('change', (e) => {
-        showGallery(e.target.value);
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLightbox();
-      });
-    });
+    };
   </script>
 </body>
 </html>
