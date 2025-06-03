@@ -47,10 +47,12 @@
       color: #ffffff;
     }
 
-    /* === GRID / CARD LAYOUT === */
-    .card-container {
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      grid-template-areas:
+        "about skills"
+        "projects services"
+        "achievements experience";
       gap: 3rem;
       padding: 2.5rem 1.5rem;
       opacity: 0;
@@ -58,12 +60,18 @@
       transition: all 0.8s ease;
     }
 
-    .card-container.show {
+    .card-grid.show {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* === SERVICES WIDGET FIX === */
+    .card.about { grid-area: about; }
+    .card.skills { grid-area: skills; }
+    .card.projects { grid-area: projects; }
+    .card.services { grid-area: services; }
+    .card.achievements { grid-area: achievements; }
+    .card.experience { grid-area: experience; }
+
     .services-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -97,9 +105,14 @@
     }
 
     @media (max-width: 768px) {
-      .card-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+      .card-grid {
+        grid-template-areas:
+          "about"
+          "skills"
+          "projects"
+          "services"
+          "achievements"
+          "experience";
       }
     }
   </style>
@@ -121,9 +134,8 @@
       </div>
     </header>
 
-    <main class="card-container" id="cards">
-      <!-- About Me Widget -->
-      <div class="card">
+    <main class="card-grid" id="cards">
+      <div class="card about">
         <div class="card-header">
           <div class="card-header-icon"><i class="fas fa-user"></i></div>
           <div class="card-header-text">
@@ -136,8 +148,7 @@
         </div>
       </div>
 
-      <!-- Skills Widget -->
-      <div class="card">
+      <div class="card skills">
         <div class="card-header">
           <div class="card-header-icon"><i class="fas fa-code"></i></div>
           <div class="card-header-text">
@@ -152,8 +163,7 @@
         </div>
       </div>
 
-      <!-- Projects Widget -->
-      <div class="card">
+      <div class="card projects">
         <div class="card-header">
           <div class="card-header-icon"><i class="fas fa-project-diagram"></i></div>
           <div class="card-header-text">
@@ -168,8 +178,7 @@
         </div>
       </div>
 
-      <!-- Services Widget -->
-      <div class="card">
+      <div class="card services">
         <div class="card-header">
           <div class="card-header-icon"><i class="fas fa-hands-helping"></i></div>
           <div class="card-header-text">
@@ -199,8 +208,7 @@
         </div>
       </div>
 
-      <!-- Achievements Widget -->
-      <div class="card">
+      <div class="card achievements">
         <div class="card-header">
           <div class="card-header-icon"><i class="fas fa-trophy"></i></div>
           <div class="card-header-text">
@@ -230,8 +238,7 @@
         </div>
       </div>
 
-      <!-- Experience Widget -->
-      <div class="card">
+      <div class="card experience">
         <div class="card-header">
           <div class="card-header-icon"><i class="fas fa-briefcase"></i></div>
           <div class="card-header-text">
@@ -285,7 +292,7 @@
           preloader.style.display = 'none';
           cards.classList.add('show');
         }, 500);
-      }, 2000); // 2 second fake delay
+      }, 2000);
     });
   </script>
 </body>
