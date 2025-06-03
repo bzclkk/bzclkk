@@ -208,12 +208,18 @@
     </div>
 
     <script>
-        window.addEventListener('load', function () {
-            const preloader = document.getElementById('preloader');
-            preloader.style.opacity = '0';
-            preloader.style.pointerEvents = 'none';
-            setTimeout(() => preloader.style.display = 'none', 500);
-        });
-    </script>
+  window.addEventListener('load', function () {
+    const preloader = document.getElementById('preloader');
+
+    // Fake delay (2000ms = 2 seconds)
+    setTimeout(() => {
+      preloader.style.opacity = '0';
+      preloader.style.pointerEvents = 'none';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500); // wait for fade-out transition
+    }, 2000);
+  });
+</script>
 </body>
 </html>
