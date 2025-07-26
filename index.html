@@ -11,28 +11,45 @@
     html {
       scroll-behavior: smooth;
     }
+
+    body {
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-spin-slow {
+      animation: spin 1.2s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body class="bg-black text-white font-inter">
 
-  <!-- AOS Init -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      once: true, // animation only once
-      duration: 700, // ms
-      easing: 'ease-out-cubic'
-    });
-  </script>
+  <!-- 🔄 Loader -->
+  <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity duration-700">
+    <div class="relative w-20 h-20 animate-spin-slow">
+      <div class="absolute inset-0 rounded-full border-4 border-zinc-700"></div>
+      <div class="absolute top-0 left-1/2 w-1/2 h-full bg-black z-10 rounded-tr-full rounded-br-full"></div>
+    </div>
+  </div>
 
-  <!-- Hero Section -->
+  <!-- ✨ Hero Section -->
   <section class="min-h-screen flex flex-col justify-center items-center text-center p-6" data-aos="fade-in">
     <h1 class="text-5xl sm:text-7xl font-extrabold mb-4 text-white drop-shadow-md">2vhj</h1>
     <p class="text-xl sm:text-2xl text-zinc-400">Roblox Frontend Developer & Builder</p>
     <p class="mt-4 max-w-xl text-zinc-500">Heyo! I’m bzclk, a 17 y/o dev who loves scripting, UI design, and 3D building on Roblox. Cheers!</p>
   </section>
 
-  <!-- Skills -->
+  <!-- ⚙️ Skills -->
   <section class="py-20 px-6 bg-zinc-900">
     <h2 class="text-3xl font-semibold mb-12 text-center text-white" data-aos="fade-up">Skills</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -47,7 +64,7 @@
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- 🧱 Projects -->
   <section class="py-20 px-6">
     <h2 class="text-3xl font-semibold mb-12 text-center" data-aos="fade-up">Featured Work</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -58,6 +75,7 @@
           <p class="text-zinc-400 text-sm">Sleek scripted UI for a roleplay experience.</p>
         </div>
       </div>
+
       <div class="bg-zinc-900 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300" data-aos="zoom-in-up" data-aos-delay="100">
         <img src="your-image-2.jpg" alt="Build Showcase" class="w-full h-48 object-cover hover:brightness-110 transition duration-300">
         <div class="p-4">
@@ -65,11 +83,12 @@
           <p class="text-zinc-400 text-sm">Realistic interior + exterior for law enforcement RP.</p>
         </div>
       </div>
-      <!-- Add more cards here with increasing data-aos-delay if desired -->
+
+      <!-- Add more project cards if needed -->
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- 📬 Contact -->
   <section class="py-20 px-6 bg-zinc-900 text-center" data-aos="fade-up">
     <h2 class="text-3xl font-semibold mb-6">Let's Connect</h2>
     <p class="text-zinc-400 mb-4">Want to collab or commission? DM me!</p>
@@ -78,10 +97,27 @@
     </p>
   </section>
 
-  <!-- Footer -->
+  <!-- 🔚 Footer -->
   <footer class="text-center text-zinc-600 py-6 text-sm" data-aos="fade-in">
     © 2025 bzclk — All rights reserved
   </footer>
 
+  <!-- AOS + Loader Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 700,
+      easing: 'ease-out-cubic'
+    });
+
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      loader.classList.add('opacity-0');
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 700);
+    });
+  </script>
 </body>
 </html>
