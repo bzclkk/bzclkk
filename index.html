@@ -6,6 +6,7 @@
   <title>2vhj | Roblox Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
     html {
       scroll-behavior: smooth;
@@ -14,55 +15,62 @@
 </head>
 <body class="bg-black text-white font-inter">
 
+  <!-- AOS Init -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true, // animation only once
+      duration: 700, // ms
+      easing: 'ease-out-cubic'
+    });
+  </script>
+
   <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center p-6">
+  <section class="min-h-screen flex flex-col justify-center items-center text-center p-6" data-aos="fade-in">
     <h1 class="text-5xl sm:text-7xl font-extrabold mb-4 text-white drop-shadow-md">2vhj</h1>
     <p class="text-xl sm:text-2xl text-zinc-400">Roblox Frontend Developer & Builder</p>
     <p class="mt-4 max-w-xl text-zinc-500">Heyo! I’m bzclk, a 17 y/o dev who loves scripting, UI design, and 3D building on Roblox. Cheers!</p>
   </section>
 
-  <!-- Skills Section -->
+  <!-- Skills -->
   <section class="py-20 px-6 bg-zinc-900">
-    <h2 class="text-3xl font-semibold mb-12 text-center text-white">Skills</h2>
+    <h2 class="text-3xl font-semibold mb-12 text-center text-white" data-aos="fade-up">Skills</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <div class="bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300">
+      <div class="bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300" data-aos="fade-right">
         <h3 class="text-xl font-bold mb-2">Frontend Scripting</h3>
         <p class="text-zinc-400">UI animation, module systems, client effects, and efficient UX.</p>
       </div>
-      <div class="bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300">
+      <div class="bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300" data-aos="fade-left">
         <h3 class="text-xl font-bold mb-2">Roblox Building</h3>
         <p class="text-zinc-400">High-detail environments, optimized maps, and clean layout design.</p>
       </div>
     </div>
   </section>
 
-  <!-- Projects / Work Showcase -->
+  <!-- Projects -->
   <section class="py-20 px-6">
-    <h2 class="text-3xl font-semibold mb-12 text-center">Featured Work</h2>
+    <h2 class="text-3xl font-semibold mb-12 text-center" data-aos="fade-up">Featured Work</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <!-- Project Card -->
-      <div class="bg-zinc-900 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
+      <div class="bg-zinc-900 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300" data-aos="zoom-in-up">
         <img src="your-image-1.jpg" alt="UI Project" class="w-full h-48 object-cover hover:brightness-110 transition duration-300">
         <div class="p-4">
           <h3 class="text-lg font-semibold">Modern UI Pack</h3>
           <p class="text-zinc-400 text-sm">Sleek scripted UI for a roleplay experience.</p>
         </div>
       </div>
-
-      <div class="bg-zinc-900 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
+      <div class="bg-zinc-900 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300" data-aos="zoom-in-up" data-aos-delay="100">
         <img src="your-image-2.jpg" alt="Build Showcase" class="w-full h-48 object-cover hover:brightness-110 transition duration-300">
         <div class="p-4">
           <h3 class="text-lg font-semibold">Barrow County HQ</h3>
           <p class="text-zinc-400 text-sm">Realistic interior + exterior for law enforcement RP.</p>
         </div>
       </div>
-
-      <!-- Add more as needed -->
+      <!-- Add more cards here with increasing data-aos-delay if desired -->
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="py-20 px-6 bg-zinc-900 text-center">
+  <!-- Contact -->
+  <section class="py-20 px-6 bg-zinc-900 text-center" data-aos="fade-up">
     <h2 class="text-3xl font-semibold mb-6">Let's Connect</h2>
     <p class="text-zinc-400 mb-4">Want to collab or commission? DM me!</p>
     <p class="text-xl font-mono bg-zinc-800 inline-block px-4 py-2 rounded-xl shadow hover:bg-zinc-700 transition duration-300">
@@ -71,7 +79,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="text-center text-zinc-600 py-6 text-sm">
+  <footer class="text-center text-zinc-600 py-6 text-sm" data-aos="fade-in">
     © 2025 bzclk — All rights reserved
   </footer>
 
