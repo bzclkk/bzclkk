@@ -3,297 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>bzclk | Portfolio</title>
-  <link rel="icon" href="cursor.png" type="image/png" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    /* === PRELOADER === */
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      background-color: #0d0f1a;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.4s ease;
-    }
-
-    .spinner {
-      width: 24px;
-      height: 24px;
-      border: 3px solid rgba(0, 247, 255, 0.2);
-      border-top: 3px solid #00f7ff;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin-bottom: 20px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .loader-text {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #ffffff;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-areas:
-        "about skills"
-        "projects services"
-        "achievements experience";
-      gap: 3rem;
-      padding: 2.5rem 1.5rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-
-    .card-grid.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card.about { grid-area: about; }
-    .card.skills { grid-area: skills; }
-    .card.projects { grid-area: projects; }
-    .card.services { grid-area: services; }
-    .card.achievements { grid-area: achievements; }
-    .card.experience { grid-area: experience; }
-
-    .services-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .service-item {
-      background-color: #1a1d33;
-      padding: 0.9rem;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .service-item:hover {
-      background-color: #252b4f;
-    }
-
-    .service-icon i {
-      font-size: 1.4rem;
-      color: #00f7ff;
-    }
-
-    .service-details h3 {
-      font-size: 0.95rem;
-      margin: 0;
-    }
-
-    @media (max-width: 768px) {
-      .card-grid {
-        grid-template-areas:
-          "about"
-          "skills"
-          "projects"
-          "services"
-          "achievements"
-          "experience";
-      }
-    }
-  </style>
+  <title>2vhj | Roblox Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="spinner"></div>
-    <div class="loader-text">bzclk.</div>
-  </div>
+<body class="bg-zinc-950 text-white font-inter">
 
-  <div class="container">
-    <header class="profile-header">
-      <div class="profile-pic">
-        <img src="https://i.imgur.com/T9l7qou.jpeg" alt="bzclk" />
-      </div>
-      <div class="header-text">
-        <h1>bzclk</h1>
-      </div>
-    </header>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center p-6">
+    <h1 class="text-4xl sm:text-6xl font-bold mb-4">2vhj</h1>
+    <p class="text-lg sm:text-xl text-zinc-400">Roblox Frontend Developer & Builder</p>
+    <p class="mt-4 max-w-xl text-zinc-500">Heyo! I’m bzclk, a 17 y/o developer who loves scripting, UI design, and 3D building on Roblox. Cheers!</p>
+  </section>
 
-    <main class="card-grid" id="cards">
-      <div class="card about">
-        <div class="card-header">
-          <div class="card-header-icon"><i class="fas fa-user"></i></div>
-          <div class="card-header-text">
-            <h2>About Me</h2>
-            <div class="header-subtext">Learn more about me.</div>
-          </div>
-        </div>
-        <div class="card-content">
-          <p>Heyo! I am bzclk, I am 17 years old, I love coding, graphic design and ER:LC moderation, cheers!</p>
-        </div>
+  <!-- Skills -->
+  <section class="py-16 px-6 bg-zinc-900">
+    <h2 class="text-3xl font-semibold mb-8 text-center">Skills</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto text-center">
+      <div class="bg-zinc-800 p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-2">Frontend Scripting</h3>
+        <p class="text-zinc-400">UI design, animations, client-side effects, module scripting, clean UX.</p>
       </div>
+      <div class="bg-zinc-800 p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-2">Roblox Building</h3>
+        <p class="text-zinc-400">Modern structures, optimized maps, detail-heavy interiors & props.</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="card skills">
-        <div class="card-header">
-          <div class="card-header-icon"><i class="fas fa-code"></i></div>
-          <div class="card-header-text">
-            <h2>Skills</h2>
-            <div class="header-subtext">Technical expertise</div>
-          </div>
-        </div>
-        <div class="card-content skills-list">
-          <div class="skill-item"><i class="fab fa-node-js"></i>NodeJS Coding</div>
-          <div class="skill-item"><i class="fab fa-html5"></i>HTML Coding</div>
-          <div class="skill-item"><i class="fas fa-palette"></i>Graphic Design</div>
+  <!-- Projects / Gallery -->
+  <section class="py-16 px-6">
+    <h2 class="text-3xl font-semibold mb-8 text-center">Featured Work</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <!-- Replace these with your actual images -->
+      <div class="bg-zinc-900 rounded-xl overflow-hidden shadow-lg">
+        <img src="your-image-1.jpg" alt="UI Sample" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Modern UI Pack</h3>
+          <p class="text-zinc-400 text-sm">Clean scripted interfaces for a roleplay game.</p>
         </div>
       </div>
-
-      <div class="card projects">
-        <div class="card-header">
-          <div class="card-header-icon"><i class="fas fa-project-diagram"></i></div>
-          <div class="card-header-text">
-            <h2>Projects</h2>
-            <div class="header-subtext">Completed work</div>
-          </div>
-        </div>
-        <div class="card-content project-list">
-          <div class="project-item"><i class="fas fa-check"></i>Newport Utilities</div>
-          <div class="project-item"><i class="fas fa-check"></i>Miami Utilities</div>
-          <div class="project-item"><i class="fas fa-check"></i>Newport Website</div>
+      <div class="bg-zinc-900 rounded-xl overflow-hidden shadow-lg">
+        <img src="your-image-2.jpg" alt="Build Sample" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Barrow County HQ</h3>
+          <p class="text-zinc-400 text-sm">Custom police station with full interior build.</p>
         </div>
       </div>
+      <!-- Add more as needed -->
+    </div>
+  </section>
 
-      <div class="card services">
-        <div class="card-header">
-          <div class="card-header-icon"><i class="fas fa-hands-helping"></i></div>
-          <div class="card-header-text">
-            <h2>Services</h2>
-            <div class="header-subtext">Select an option</div>
-          </div>
-        </div>
-        <div class="card-content">
-          <div class="services-list">
-            <div class="service-item">
-              <div class="service-icon"><i class="fas fa-palette"></i></div>
-              <div class="service-details"><h3>Graphic Design</h3></div>
-            </div>
-            <div class="service-item">
-              <div class="service-icon"><i class="fas fa-code"></i></div>
-              <div class="service-details"><h3>Web Development</h3></div>
-            </div>
-            <div class="service-item">
-              <div class="service-icon"><i class="fas fa-robot"></i></div>
-              <div class="service-details"><h3>Bot Development</h3></div>
-            </div>
-            <div class="service-item">
-              <div class="service-icon"><i class="fas fa-car"></i></div>
-              <div class="service-details"><h3>ERLC Alting</h3></div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- Contact -->
+  <section class="py-16 px-6 bg-zinc-900 text-center">
+    <h2 class="text-3xl font-semibold mb-4">Get in Touch</h2>
+    <p class="text-zinc-400 mb-6">Want to collab or commission me? Hit me up on Discord.</p>
+    <p class="text-xl font-mono bg-zinc-800 inline-block px-4 py-2 rounded-xl">Discord: <strong>2vhj</strong></p>
+  </section>
 
-      <div class="card achievements">
-        <div class="card-header">
-          <div class="card-header-icon"><i class="fas fa-trophy"></i></div>
-          <div class="card-header-text">
-            <h2>Achievements</h2>
-            <div class="header-subtext">Highlights</div>
-          </div>
-        </div>
-        <div class="card-content">
-          <div class="stats-inner">
-            <div class="stat-item"><h3>20+</h3><p>Projects</p></div>
-            <div class="stat-item"><h3>35+</h3><p>Clients</p></div>
-            <div class="stat-item"><h3>1.5+</h3><p>Years</p></div>
-          </div>
-          <div class="music-player">
-            <div class="music-info">
-              <h3>1AM</h3>
-              <p>The bear guy</p>
-            </div>
-            <div class="player-controls">
-              <button class="control-btn"><i class="fas fa-step-backward"></i></button>
-              <button class="control-btn"><i class="fas fa-play"></i></button>
-              <button class="control-btn"><i class="fas fa-step-forward"></i></button>
-            </div>
-            <div class="progress-bar"><div class="progress"></div></div>
-            <div class="time-info"><span>0:00</span><span>2:34</span></div>
-          </div>
-        </div>
-      </div>
+  <footer class="text-center text-zinc-600 py-6 text-sm">
+    © 2025 bzclk — All rights reserved
+  </footer>
 
-      <div class="card experience">
-        <div class="card-header">
-          <div class="card-header-icon"><i class="fas fa-briefcase"></i></div>
-          <div class="card-header-text">
-            <h2>Experience</h2>
-            <div class="header-subtext">Career journey</div>
-          </div>
-        </div>
-        <div class="card-content timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>Developer & Designer</h3>
-              <div class="timeline-date">2025 - Present</div>
-              <p>I can now code in 2+ languages and do logos and banners as well!</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>Banner Designer</h3>
-              <div class="timeline-date">Late 2024</div>
-              <p>Started to learn how to make banners and how to code.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>ERLC Journey</h3>
-              <div class="timeline-date">Early 2024</div>
-              <p>Began my ER:LC journey without prior skills.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      <p>&copy; 2025 | bzclk | All rights reserved.</p>
-    </footer>
-  </div>
-
-  <script>
-    window.addEventListener('load', function () {
-      const preloader = document.getElementById('preloader');
-      const cards = document.getElementById('cards');
-
-      setTimeout(() => {
-        preloader.style.opacity = '0';
-        preloader.style.pointerEvents = 'none';
-        setTimeout(() => {
-          preloader.style.display = 'none';
-          cards.classList.add('show');
-        }, 500);
-      }, 2000);
-    });
-  </script>
 </body>
 </html>
