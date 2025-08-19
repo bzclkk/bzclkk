@@ -4,6 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>nahlira | Roblox Developer Portfolio</title>
+
+  <!-- ✅ Discord Embed (Open Graph) -->
+  <meta property="og:title" content="nahlira" />
+  <meta property="og:description" content="Uh im a developer, I guess" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://yourdomain.com/embed-image.png" />
+
+  <!-- Twitter card support (optional) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="nahlira">
+  <meta name="twitter:description" content="Uh im a developer, I guess">
+  <meta name="twitter:image" content="https://yourdomain.com/embed-image.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -76,7 +90,7 @@
 <body>
 
   <!-- 🔄 Loader -->
-  <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50">
+  <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity duration-700">
     <div class="relative w-20 h-20 animate-spin-slow">
       <div class="absolute inset-0 rounded-full border-4 border-zinc-700"></div>
       <div class="absolute top-0 left-1/2 w-1/2 h-full bg-black z-10 rounded-tr-full rounded-br-full"></div>
@@ -85,30 +99,20 @@
 
   <!-- ✨ Hero Section -->
   <section class="min-h-screen flex flex-col justify-center items-center text-center p-6" data-aos="fade">
-    <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold mb-4 drop-shadow-md">2vhj</h1>
+    <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold mb-4 drop-shadow-md">nahlira</h1>
     <p class="text-xl sm:text-2xl text-zinc-400">Roblox Frontend Developer & Builder</p>
     <p class="mt-4 max-w-xl text-zinc-500">Heyo! I’m nahlira (bzclk), a 17 y/o dev who loves scripting, UI design, and 3D building on Roblox. Cheers!</p>
   </section>
-
-  <!-- 💬 Discord Style Embed -->
-  <div class="max-w-md mx-auto mt-6 mb-16" data-aos="fade-up">
-    <div class="bg-[#2b2d31] p-4 rounded-lg">
-      <span class="text-[#00a8ff] font-semibold block mb-2">nahlira</span>
-      <div class="bg-[#1e1f22] text-[#dbdee1] p-3 rounded-md text-sm">
-        Uh im a developer, I guess
-      </div>
-    </div>
-  </div>
 
   <!-- ⚙️ Skills -->
   <section class="py-20 px-6 bg-zinc-900">
     <h2 class="text-3xl font-semibold mb-12 text-center text-white" data-aos="fade-up">Skills</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <div class="skill-card bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03]" data-aos="fade-right">
+      <div class="skill-card bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl" data-aos="fade-right">
         <h3 class="text-xl font-bold mb-2">Frontend Scripting</h3>
         <p class="text-zinc-400">UI animation, module systems, client effects, and efficient UX.</p>
       </div>
-      <div class="skill-card bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03]" data-aos="fade-left">
+      <div class="skill-card bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl" data-aos="fade-left">
         <h3 class="text-xl font-bold mb-2">Roblox Building</h3>
         <p class="text-zinc-400">High-detail environments, optimized maps, and clean layout design.</p>
       </div>
@@ -118,7 +122,7 @@
   <!-- 🧱 Projects -->
   <section class="py-20 px-6">
     <div class="project-card bg-zinc-900 rounded-xl overflow-hidden shadow-lg transform transition duration-300 mx-auto max-w-xl" data-aos="zoom-in-up" data-aos-delay="100">
-        <img src="your-image-2.jpg.PNG" alt="Build Showcase" class="w-full h-48 object-cover">
+        <img src="your-image-2.jpg.PNG" alt="Barrow County HQ Build Showcase" class="w-full h-48 object-cover">
         <div class="project-overlay">
           <h3 class="text-lg font-semibold mb-1">Barrow County HQ</h3>
           <p class="text-sm">Realistic interiors + exteriors. Roleplay Ready.</p>
@@ -159,16 +163,20 @@
       alert("don't inspect me 😭");
     });
 
-    // 3D mouse-follow effect on skill cards
+    // 🌐 Global mouse-follow effect for skill cards
     const cards = document.querySelectorAll('.skill-card');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.transform = `rotateY(${(x - rect.width/2)/20}deg) rotateX(${(rect.height/2 - y)/20}deg) scale(1.03)`;
+    document.addEventListener('mousemove', e => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX - innerWidth / 2) / 40;
+      const y = (innerHeight / 2 - e.clientY) / 40;
+
+      cards.forEach(card => {
+        card.style.transform = `rotateY(${x}deg) rotateX(${y}deg) scale(1.03)`;
       });
-      card.addEventListener('mouseleave', () => {
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cards.forEach(card => {
         card.style.transform = 'rotateY(0) rotateX(0) scale(1)';
       });
     });
