@@ -30,9 +30,25 @@
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
+
+    /* Transparent overlay to prevent text selection */
+    .no-select-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: transparent;
+      pointer-events: none;
+      user-select: none;
+    }
   </style>
 </head>
 <body class="bg-black text-white font-inter">
+
+  <!-- Transparent overlay -->
+  <div class="no-select-overlay"></div>
 
   <!-- 🔄 Loader -->
   <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity duration-700">
@@ -48,6 +64,16 @@
     <p class="text-xl sm:text-2xl text-zinc-400">Roblox Frontend Developer & Builder</p>
     <p class="mt-4 max-w-xl text-zinc-500">Heyo! I’m nahlira (bzclk), a 17 y/o dev who loves scripting, UI design, and 3D building on Roblox. Cheers!</p>
   </section>
+
+  <!-- 💬 Discord Style Embed -->
+  <div class="max-w-md mx-auto mt-6 mb-16" data-aos="fade-up">
+    <div class="bg-[#2b2d31] p-4 rounded-lg">
+      <span class="text-[#00a8ff] font-semibold block mb-2">nahlira</span>
+      <div class="bg-[#1e1f22] text-[#dbdee1] p-3 rounded-md text-sm">
+        Uh im a developer, I guess
+      </div>
+    </div>
+  </div>
 
   <!-- ⚙️ Skills -->
   <section class="py-20 px-6 bg-zinc-900">
@@ -66,16 +92,12 @@
 
   <!-- 🧱 Projects -->
   <section class="py-20 px-6">
-    
     <div class="bg-zinc-900 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300" data-aos="zoom-in-up" data-aos-delay="100">
         <img src="your-image-2.jpg.PNG" alt="Build Showcase" class="w-full h-48 object-cover hover:brightness-110 transition duration-300">
         <div class="p-4">
           <h3 class="text-lg font-semibold">Barrow County HQ</h3>
           <p class="text-zinc-400 text-sm">Realistic interiors + exteriors (Roleplay Ready.</p>
         </div>
-      </div>
-
-      <!-- Add more project cards if needed -->
     </div>
   </section>
 
@@ -93,7 +115,47 @@
     © 2025 nahlira — All rights reserved
   </footer>
 
-  <!-- AOS + Loader Script -->
+  <!-- 🚫 Protection Script -->
+  <script>
+    // Disable Ctrl+S
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        alert("What you tryna save? 😭✌🏾");
+      }
+    });
+
+    // Disable DevTools shortcuts
+    document.addEventListener('keydown', function (e) {
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (e.key.toUpperCase() === 'I' || e.key.toUpperCase() === 'C' || e.key.toUpperCase() === 'J')) ||
+        (e.ctrlKey && e.key.toUpperCase() === 'U')
+      ) {
+        e.preventDefault();
+        alert("don't inspect me 😭");
+      }
+    });
+
+    // Disable right click
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      alert("don't inspect me 😭");
+    });
+
+    // Anti-debug loop
+    (function() {
+      function detectDevTools() {
+        if (/./.toString() !== '/./') {
+          alert("don't inspect me 😭");
+        }
+        setTimeout(detectDevTools, 1000);
+      }
+      detectDevTools();
+    })();
+  </script>
+
+  <!-- AOS & Loader Script -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
