@@ -4,28 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>nahlira | Roblox Developer Portfolio</title>
-
-  <!-- ✅ Discord Embed (Open Graph) -->
-  <meta property="og:title" content="nahlira" />
-  <meta property="og:description" content="Uh im a developer, I guess" />
-  <meta property="og:url" content="https://yourdomain.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://yourdomain.com/embed-image.png" />
-
-  <!-- Twitter card support -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="nahlira">
-  <meta name="twitter:description" content="Uh im a developer, I guess">
-  <meta name="twitter:image" content="https://yourdomain.com/embed-image.png">
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       opacity: 0;
       animation: fadeIn 1s ease-out forwards;
@@ -34,77 +17,33 @@
       color: #fff;
       overflow-x: hidden;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .animate-spin-slow {
-      animation: spin 1.2s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .skill-card {
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      perspective: 1000px;
-    }
-
-    .project-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card img {
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .animate-spin-slow { animation: spin 1.2s linear infinite; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .skill-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .project-card { position: relative; overflow: hidden; }
+    .project-card img { transition: transform 0.3s ease, filter 0.3s ease; }
     .project-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      text-align: center;
-      padding: 1rem;
+      position: absolute; inset: 0; background: rgba(0,0,0,0.7);
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      opacity: 0; transition: opacity 0.3s ease; text-align: center; padding: 1rem;
     }
-
-    .project-card:hover img {
-      transform: scale(1.05);
-      filter: brightness(110%);
-    }
-
-    .project-card:hover .project-overlay {
-      opacity: 1;
-    }
-
-    /* Star canvas behind hero */
-    #starfield {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: black;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 10;
+    .project-card:hover img { transform: scale(1.05); filter: brightness(110%); }
+    .project-card:hover .project-overlay { opacity: 1; }
+    canvas#starfield {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
     }
   </style>
 </head>
 <body>
 
+  <!-- 🌌 Starfield Canvas -->
+  <canvas id="starfield"></canvas>
+
   <!-- 🔄 Loader -->
-  <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity duration-700">
+  <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50">
     <div class="relative w-20 h-20 animate-spin-slow">
       <div class="absolute inset-0 rounded-full border-4 border-zinc-700"></div>
       <div class="absolute top-0 left-1/2 w-1/2 h-full bg-black z-10 rounded-tr-full rounded-br-full"></div>
@@ -112,27 +51,39 @@
   </div>
 
   <!-- ✨ Hero Section -->
-  <section class="relative min-h-screen flex flex-col justify-center items-center text-center p-6 overflow-hidden" data-aos="fade">
-    <!-- 🌌 Starfield Background -->
-    <canvas id="starfield"></canvas>
+  <section class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative z-10" data-aos="fade">
+    <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold mb-4 drop-shadow-md">nahlira</h1>
+    <p class="text-xl sm:text-2xl text-zinc-400">Roblox Frontend Developer & Builder</p>
+    <p class="mt-4 max-w-xl text-zinc-500">Heyo! I’m nahlira (bzclk), a 17 y/o dev who loves scripting, UI design, and 3D building on Roblox. Cheers!</p>
 
-    <!-- Content above stars -->
-    <div class="hero-content">
-      <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold mb-4 drop-shadow-md">nahlira</h1>
-      <p class="text-xl sm:text-2xl text-zinc-400">Roblox Frontend Developer & Builder</p>
-      <p class="mt-4 max-w-xl text-zinc-500">Heyo! I’m nahlira (bzclk), a 17 y/o dev who loves scripting, UI design, and 3D building on Roblox. Cheers!</p>
+    <!-- 👇 Scroll Down Indicator -->
+    <div id="scroll-indicator" class="mt-16 flex flex-col items-center text-zinc-400 animate-bounce transition-opacity duration-700">
+      <span class="text-sm mb-2">Scroll Down</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
     </div>
   </section>
 
+  <!-- 💬 Discord Style Embed -->
+  <div class="max-w-md mx-auto mt-6 mb-16 relative z-10" data-aos="fade-up">
+    <div class="bg-[#2b2d31] p-4 rounded-lg">
+      <span class="text-[#00a8ff] font-semibold block mb-2">nahlira</span>
+      <div class="bg-[#1e1f22] text-[#dbdee1] p-3 rounded-md text-sm">
+        Uh im a developer, I guess
+      </div>
+    </div>
+  </div>
+
   <!-- ⚙️ Skills -->
-  <section class="py-20 px-6 bg-zinc-900">
+  <section class="py-20 px-6 bg-zinc-900 relative z-10">
     <h2 class="text-3xl font-semibold mb-12 text-center text-white" data-aos="fade-up">Skills</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <div class="skill-card bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl" data-aos="fade-right">
+      <div class="skill-card bg-zinc-800 p-6 rounded-2xl shadow-md" data-aos="fade-right">
         <h3 class="text-xl font-bold mb-2">Frontend Scripting</h3>
         <p class="text-zinc-400">UI animation, module systems, client effects, and efficient UX.</p>
       </div>
-      <div class="skill-card bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl" data-aos="fade-left">
+      <div class="skill-card bg-zinc-800 p-6 rounded-2xl shadow-md" data-aos="fade-left">
         <h3 class="text-xl font-bold mb-2">Roblox Building</h3>
         <p class="text-zinc-400">High-detail environments, optimized maps, and clean layout design.</p>
       </div>
@@ -140,9 +91,9 @@
   </section>
 
   <!-- 🧱 Projects -->
-  <section class="py-20 px-6">
+  <section class="py-20 px-6 relative z-10">
     <div class="project-card bg-zinc-900 rounded-xl overflow-hidden shadow-lg transform transition duration-300 mx-auto max-w-xl" data-aos="zoom-in-up" data-aos-delay="100">
-        <img src="your-image-2.jpg.PNG" alt="Barrow County HQ Build Showcase" class="w-full h-48 object-cover">
+        <img src="your-image-2.jpg.PNG" alt="Build Showcase" class="w-full h-48 object-cover">
         <div class="project-overlay">
           <h3 class="text-lg font-semibold mb-1">Barrow County HQ</h3>
           <p class="text-sm">Realistic interiors + exteriors. Roleplay Ready.</p>
@@ -151,7 +102,7 @@
   </section>
 
   <!-- 📬 Contact -->
-  <section class="py-20 px-6 bg-zinc-900 text-center" data-aos="fade-up">
+  <section class="py-20 px-6 bg-zinc-900 text-center relative z-10" data-aos="fade-up">
     <h2 class="text-3xl font-semibold mb-6">Let's Connect</h2>
     <p class="text-zinc-400 mb-4">Want to collab or commission? DM me!</p>
     <p class="text-xl font-mono bg-zinc-800 inline-block px-4 py-2 rounded-xl shadow hover:bg-zinc-700 transition duration-300">
@@ -160,110 +111,95 @@
   </section>
 
   <!-- 🔚 Footer -->
-  <footer class="text-center text-zinc-600 py-6 text-sm" data-aos="fade">
+  <footer class="text-center text-zinc-600 py-6 text-sm relative z-10" data-aos="fade">
     © 2025 nahlira — All rights reserved
   </footer>
 
-  <!-- 🚫 Protection Script + Parallax + Stars -->
+  <!-- 🚫 Protection Script -->
   <script>
-    // Fun alerts for Ctrl+S, right-click, DevTools
     document.addEventListener('keydown', function(e) {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
-        e.preventDefault();
-        alert("What you tryna save? 😭✌🏾");
+        e.preventDefault(); alert("What you tryna save? 😭✌🏾");
       }
       if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','C','J'].includes(e.key.toUpperCase())) || (e.ctrlKey && e.key.toUpperCase() === 'U')) {
-        e.preventDefault();
-        alert("don't inspect me 😭");
+        e.preventDefault(); alert("don't inspect me 😭");
       }
     });
+    document.addEventListener('contextmenu', function(e){ e.preventDefault(); alert("don't inspect me 😭"); });
+  </script>
 
-    document.addEventListener('contextmenu', function(e){
-      e.preventDefault();
-      alert("don't inspect me 😭");
-    });
-
-    // 🌐 Global mouse-follow PAN + TILT effect for skill cards
-    const cards = document.querySelectorAll('.skill-card');
-    document.addEventListener('mousemove', e => {
-      const { innerWidth, innerHeight } = window;
-      const x = (e.clientX - innerWidth / 2) / 25; 
-      const y = (e.clientY - innerHeight / 2) / 25;
-
-      const tiltX = (e.clientY - innerHeight / 2) / 40;
-      const tiltY = -(e.clientX - innerWidth / 2) / 40;
-
-      cards.forEach(card => {
-        card.style.transform = `
-          translate(${x}px, ${y}px)
-          rotateX(${tiltX}deg)
-          rotateY(${tiltY}deg)
-          scale(1.03)
-        `;
-      });
-    });
-
-    document.addEventListener('mouseleave', () => {
-      cards.forEach(card => {
-        card.style.transform = 'translate(0, 0) rotateX(0) rotateY(0) scale(1)';
-      });
-    });
-
-    // 🌌 Starfield Background
-    const canvas = document.getElementById('starfield');
-    const ctx = canvas.getContext('2d');
+  <!-- 🌌 Starfield Script with Flicker -->
+  <script>
+    const canvas = document.getElementById("starfield");
+    const ctx = canvas.getContext("2d");
     let stars = [];
 
-    function resizeCanvas() {
+    function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      stars = [];
-      for (let i = 0; i < 120; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 1.5,
-          speed: 0.2 + Math.random() * 0.3,
-          alpha: 0.5 + Math.random() * 0.5
-        });
-      }
+      stars = Array.from({length: 150}, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2,
+        speed: 0.2 + Math.random() * 0.3,
+        opacity: Math.random(),
+        flicker: Math.random() * 0.02 + 0.005
+      }));
     }
+    window.addEventListener("resize", resize);
+    resize();
 
-    function drawStars() {
+    function animateStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
-        ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
-        ctx.fill();
-
         star.y += star.speed;
-        if (star.y > canvas.height) {
-          star.y = 0;
-          star.x = Math.random() * canvas.width;
-        }
+        if (star.y > canvas.height) { star.y = 0; star.x = Math.random() * canvas.width; }
+        star.opacity += (Math.random() - 0.5) * star.flicker;
+        if (star.opacity < 0) star.opacity = 0;
+        if (star.opacity > 1) star.opacity = 1;
+        ctx.fillStyle = `rgba(255,255,255,${star.opacity})`;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fill();
       });
-      requestAnimationFrame(drawStars);
+      requestAnimationFrame(animateStars);
     }
+    animateStars();
+  </script>
 
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-    drawStars();
+  <!-- 🎴 3D Tilt Cards -->
+  <script>
+    const cards = document.querySelectorAll('.skill-card');
+    const strength = 20;
+    document.addEventListener('mousemove', e => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX - innerWidth / 2) / strength;
+      const y = (innerHeight / 2 - e.clientY) / strength;
+      cards.forEach(card => {
+        card.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg) scale(1.05)`;
+      });
+    });
+    document.addEventListener('mouseleave', () => {
+      cards.forEach(card => {
+        card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
+      });
+    });
   </script>
 
   <!-- AOS & Loader Script -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      once: true,
-      duration: 700,
-      easing: 'ease-out-cubic'
-    });
-
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader');
       loader.classList.add('opacity-0');
       setTimeout(() => loader.style.display = 'none', 700);
+    });
+
+    // 🡇 Hide scroll indicator after scroll
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    window.addEventListener('scroll', () => {
+      scrollIndicator.style.opacity = window.scrollY > 100 ? '0' : '1';
     });
   </script>
 </body>
