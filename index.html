@@ -7,6 +7,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- 🟦 Discord Embed (Open Graph Tags) -->
+  <meta property="og:title" content="nahlira" />
+  <meta property="og:description" content="uh I'm a developer, I guess" />
+  <meta property="og:image" content="https://yourwebsite.com/path-to-preview-image.png" />
+  <meta property="og:url" content="https://yourwebsite.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     html { scroll-behavior: smooth; }
 
@@ -79,15 +87,6 @@
       position: relative;
       z-index: 1;
     }
-
-    /* 👇 Smooth fade for scroll indicator */
-    #scroll-indicator {
-      opacity: 1;
-      transition: opacity 0.7s ease;
-    }
-    #scroll-indicator.hidden {
-      opacity: 0;
-    }
   </style>
 </head>
 <body>
@@ -112,7 +111,7 @@
       <p class="mt-4 max-w-xl text-zinc-500">Heyo! I’m nahlira (bzclk), a 17 y/o dev who loves scripting, UI design, and 3D building on Roblox. Cheers!</p>
 
       <!-- 👇 Scroll Down Indicator -->
-      <div id="scroll-indicator" class="mt-16 flex flex-col items-center text-zinc-400 animate-bounce">
+      <div id="scroll-indicator" class="mt-16 flex flex-col items-center text-zinc-400 animate-bounce transition-opacity duration-700">
         <span class="text-sm mb-2">Scroll Down</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -120,16 +119,6 @@
       </div>
     </div>
   </section>
-
-  <!-- 💬 Discord Style Embed -->
-  <div class="max-w-md mx-auto mt-6 mb-16" data-aos="fade-up">
-    <div class="bg-[#2b2d31] p-4 rounded-lg">
-      <span class="text-[#00a8ff] font-semibold block mb-2">nahlira</span>
-      <div class="bg-[#1e1f22] text-[#dbdee1] p-3 rounded-md text-sm">
-        Uh im a developer, I guess
-      </div>
-    </div>
-  </div>
 
   <!-- ⚙️ Skills -->
   <section class="py-20 px-6 bg-zinc-900">
@@ -173,7 +162,6 @@
 
   <!-- 🚫 Protection Script -->
   <script>
-    // Fun alerts for Ctrl+S, right-click, DevTools
     document.addEventListener('keydown', function(e) {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
         e.preventDefault();
@@ -228,7 +216,7 @@
   <!-- 🎴 Skill Cards Tilt Script -->
   <script>
     const cards = document.querySelectorAll('.skill-card');
-    const strength = 25; // smaller = more tilt
+    const strength = 25;
 
     document.addEventListener('mousemove', e => {
       const { innerWidth, innerHeight } = window;
@@ -247,14 +235,14 @@
     });
   </script>
 
-  <!-- 👇 Smooth hide scroll indicator after scrolling -->
+  <!-- 👇 Hide scroll indicator after scrolling -->
   <script>
     const scrollIndicator = document.getElementById('scroll-indicator');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 100) {
-        scrollIndicator.classList.add('hidden');
+        scrollIndicator.style.opacity = '0';
       } else {
-        scrollIndicator.classList.remove('hidden');
+        scrollIndicator.style.opacity = '1';
       }
     });
   </script>
