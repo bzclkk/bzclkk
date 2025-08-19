@@ -15,6 +15,9 @@
     body {
       opacity: 0;
       animation: fadeIn 1s ease-out forwards;
+      font-family: 'Inter', sans-serif;
+      background-color: #000;
+      color: #fff;
     }
 
     @keyframes fadeIn {
@@ -31,27 +34,49 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Transparent overlay to prevent text selection */
-    .no-select-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      background: transparent;
-      pointer-events: none;
-      user-select: none;
+    .skill-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      perspective: 1000px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+      filter: brightness(110%);
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
     }
   </style>
 </head>
-<body class="bg-black text-white font-inter">
-
-  <!-- Transparent overlay -->
-  <div class="no-select-overlay"></div>
+<body>
 
   <!-- 🔄 Loader -->
-  <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity duration-700">
+  <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50">
     <div class="relative w-20 h-20 animate-spin-slow">
       <div class="absolute inset-0 rounded-full border-4 border-zinc-700"></div>
       <div class="absolute top-0 left-1/2 w-1/2 h-full bg-black z-10 rounded-tr-full rounded-br-full"></div>
@@ -59,8 +84,8 @@
   </div>
 
   <!-- ✨ Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center p-6" data-aos="fade-in">
-    <h1 class="text-5xl sm:text-7xl font-extrabold mb-4 text-white drop-shadow-md">2vhj</h1>
+  <section class="min-h-screen flex flex-col justify-center items-center text-center p-6" data-aos="fade">
+    <h1 class="text-5xl sm:text-7xl md:text-8xl font-extrabold mb-4 drop-shadow-md">2vhj</h1>
     <p class="text-xl sm:text-2xl text-zinc-400">Roblox Frontend Developer & Builder</p>
     <p class="mt-4 max-w-xl text-zinc-500">Heyo! I’m nahlira (bzclk), a 17 y/o dev who loves scripting, UI design, and 3D building on Roblox. Cheers!</p>
   </section>
@@ -79,11 +104,11 @@
   <section class="py-20 px-6 bg-zinc-900">
     <h2 class="text-3xl font-semibold mb-12 text-center text-white" data-aos="fade-up">Skills</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <div class="bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300" data-aos="fade-right">
+      <div class="skill-card bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03]" data-aos="fade-right">
         <h3 class="text-xl font-bold mb-2">Frontend Scripting</h3>
         <p class="text-zinc-400">UI animation, module systems, client effects, and efficient UX.</p>
       </div>
-      <div class="bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300" data-aos="fade-left">
+      <div class="skill-card bg-zinc-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03]" data-aos="fade-left">
         <h3 class="text-xl font-bold mb-2">Roblox Building</h3>
         <p class="text-zinc-400">High-detail environments, optimized maps, and clean layout design.</p>
       </div>
@@ -92,11 +117,11 @@
 
   <!-- 🧱 Projects -->
   <section class="py-20 px-6">
-    <div class="bg-zinc-900 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300" data-aos="zoom-in-up" data-aos-delay="100">
-        <img src="your-image-2.jpg.PNG" alt="Build Showcase" class="w-full h-48 object-cover hover:brightness-110 transition duration-300">
-        <div class="p-4">
-          <h3 class="text-lg font-semibold">Barrow County HQ</h3>
-          <p class="text-zinc-400 text-sm">Realistic interiors + exteriors (Roleplay Ready.</p>
+    <div class="project-card bg-zinc-900 rounded-xl overflow-hidden shadow-lg transform transition duration-300 mx-auto max-w-xl" data-aos="zoom-in-up" data-aos-delay="100">
+        <img src="your-image-2.png" alt="Build Showcase" class="w-full h-48 object-cover">
+        <div class="project-overlay">
+          <h3 class="text-lg font-semibold mb-1">Barrow County HQ</h3>
+          <p class="text-sm">Realistic interiors + exteriors. Roleplay Ready.</p>
         </div>
     </div>
   </section>
@@ -111,48 +136,42 @@
   </section>
 
   <!-- 🔚 Footer -->
-  <footer class="text-center text-zinc-600 py-6 text-sm" data-aos="fade-in">
+  <footer class="text-center text-zinc-600 py-6 text-sm" data-aos="fade">
     © 2025 nahlira — All rights reserved
   </footer>
 
   <!-- 🚫 Protection Script -->
   <script>
-    // Disable Ctrl+S
+    // Fun alerts for Ctrl+S, right-click, DevTools
     document.addEventListener('keydown', function(e) {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
         e.preventDefault();
         alert("What you tryna save? 😭✌🏾");
       }
-    });
-
-    // Disable DevTools shortcuts
-    document.addEventListener('keydown', function (e) {
-      if (
-        e.key === 'F12' ||
-        (e.ctrlKey && e.shiftKey && (e.key.toUpperCase() === 'I' || e.key.toUpperCase() === 'C' || e.key.toUpperCase() === 'J')) ||
-        (e.ctrlKey && e.key.toUpperCase() === 'U')
-      ) {
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','C','J'].includes(e.key.toUpperCase())) || (e.ctrlKey && e.key.toUpperCase() === 'U')) {
         e.preventDefault();
         alert("don't inspect me 😭");
       }
     });
 
-    // Disable right click
-    document.addEventListener('contextmenu', function(e) {
+    document.addEventListener('contextmenu', function(e){
       e.preventDefault();
       alert("don't inspect me 😭");
     });
 
-    // Anti-debug loop
-    (function() {
-      function detectDevTools() {
-        if (/./.toString() !== '/./') {
-          alert("don't inspect me 😭");
-        }
-        setTimeout(detectDevTools, 1000);
-      }
-      detectDevTools();
-    })();
+    // 3D mouse-follow effect on skill cards
+    const cards = document.querySelectorAll('.skill-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.transform = `rotateY(${(x - rect.width/2)/20}deg) rotateX(${(rect.height/2 - y)/20}deg) scale(1.03)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+      });
+    });
   </script>
 
   <!-- AOS & Loader Script -->
@@ -167,9 +186,7 @@
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader');
       loader.classList.add('opacity-0');
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 10000);
+      setTimeout(() => loader.style.display = 'none', 700);
     });
   </script>
 </body>
